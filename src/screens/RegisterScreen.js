@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, View, StyleSheet, Image, TextInput } from 'react-native';
+import { Text, View, StyleSheet, Image, TextInput, ImageBackground, Dimensions } from 'react-native';
 import { Button } from '../components/common/Button';
 
 export default class RegisterScreen extends Component{
@@ -17,9 +17,11 @@ export default class RegisterScreen extends Component{
   }
 
   render(){
-    const { containerStyle, textStyle, inputStyle, imageStyle, buttonViewStyle, horizontalLineStyle } = styles;
+    const { containerStyle, textStyle, inputStyle, imageStyle, buttonViewStyle, horizontalLineStyle, backgroundImageStyle } = styles;
     return (
-      <View style={containerStyle}>
+      <View>
+        <ImageBackground source={require('../assets/images/bg-image.jpg')} resizeMode='cover' style={backgroundImageStyle} />
+        <View style={containerStyle}>
         <Image source={require('../assets/images/user.png')} style={imageStyle} />
         <Text style={textStyle}>Register</Text>
         <TextInput
@@ -79,6 +81,7 @@ export default class RegisterScreen extends Component{
           </Text>
         </View>
       </View>
+      </View>
     );
   }
 }
@@ -87,8 +90,14 @@ const styles = StyleSheet.create({
   containerStyle: {
     justifyContent: 'center',
     elevation: 1,
-    marginHorizontal: 25,
-    marginTop: 50,
+    marginHorizontal: 20,
+    marginTop: 100,
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+  },
+  backgroundImageStyle:{
+    height: Dimensions.get('screen').height,
+    width: Dimensions.get('screen').width,
+    flex: 1,
   },
   textStyle: {
     fontSize: 30,
@@ -103,6 +112,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'lightsteelblue',
     fontSize: 15,
     padding: 10,
+    marginHorizontal: 10,
   },
   iconStyle: {
     alignSelf: 'center',
@@ -124,7 +134,8 @@ const styles = StyleSheet.create({
   horizontalLineStyle: {
     flexDirection: 'row', 
     alignItems: 'center', 
-    marginTop: 20
+    marginTop: 20,
+    marginHorizontal: 10,
   },
   footerLink: {
     color: "slateblue",
