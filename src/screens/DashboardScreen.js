@@ -95,22 +95,22 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
   imageStyle: {
-    height: 80,
-    width: 80,
+    height: 60,
+    width: 60,
     alignSelf: 'flex-end',
   },
   containerStyle: {
-    width: 200,
+    width: 150,
     height: 110,
     backgroundColor: 'silver',
     flexDirection: 'row',
     marginTop: 40,
-    marginLeft: 10,
+    marginLeft: 20,
     justifyContent: 'space-between'
   },
   textStyle: {
-    fontSize: 40,
-    fontWeight: 'bold',
+    fontSize: 30,
+    fontWeight: '600',
     color: 'black',
     alignSelf: 'flex-end',
     paddingHorizontal: 10,
@@ -134,11 +134,11 @@ const styles = StyleSheet.create({
     width: 20 * 2,
     height: 20,
     backgroundColor: 'red',
+    marginLeft: -52,
   },
   greenRectangle:{
     width: 20 * 2,
     height: 20,
     backgroundColor: 'green',
-    marginLeft: -45,
   }
 });

@@ -12,7 +12,7 @@ class LoginScreen extends Component {
     //   return <Spinner size="small" />;
     // }
     return (
-      <Button onPress={() => this.props.navigation.navigate('Store')}>
+      <Button onPress={() => this.props.navigation.replace('Dashboard')}>
         LOGIN
       </Button>
     );

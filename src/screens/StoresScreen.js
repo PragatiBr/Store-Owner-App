@@ -8,6 +8,16 @@ export default class StoresScreen extends Component{
     const { iconStyle, dotIconStyle, textStyle, containerStyle, imageStyle, tableShiftStyle } = styles;
     return (
       <ScrollView horizontal>
+        {/* <View style={{
+          backgroundColor: 'lightgrey',
+          borderRadius: 100/2,
+          width: 50,
+          height: 50,
+          position: 'absolute',
+        }}>
+          <Text style={{ color: 'white', fontSize: 15, fontWeight: 'bold' 
+          }}>Logo</Text>
+        </View> */}
         <Icon name="menu" size={35} style={iconStyle} />
         <View style={{ marginTop: 40}}>
           <View style={containerStyle}>
