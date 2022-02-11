@@ -77,20 +77,20 @@ export default class DashboardScreen extends Component {
             <View style={{ flexDirection: 'row', justifyContent:'space-between', paddingTop: 20 }}>
               <Text style={tableText} onPress={() => this.props.navigation.navigate('OrderInvoice')}>ORDER ID</Text>
               <Text style={tableText}>PRICE</Text>
-              <Text style={tableText}>TIME ORDER PLACED</Text>
-              <Text style={tableText}>TIME ORDER ACCEPTED</Text>
+              <Text style={tableText}>ORDER PLACED TIME</Text>
+              <Text style={tableText}>ORDER ACCEPTED TIME</Text>
             </View>
             <View style={{ flexDirection: 'row', justifyContent:'space-between', paddingTop: 20 }}>
               <Text style={tableText} onPress={() => this.props.navigation.navigate('OrderInvoice')}>ORDER ID</Text>
               <Text style={tableText}>PRICE</Text>
-              <Text style={tableText}>TIME ORDER PLACED</Text>
-              <Text style={tableText}>TIME ORDER ACCEPTED</Text>
+              <Text style={tableText}>ORDER PLACED TIME</Text>
+              <Text style={tableText}>ORDER ACCEPTED TIME</Text>
             </View>
             <View style={{ flexDirection: 'row', justifyContent:'space-between', paddingTop: 20 }}>
               <Text style={tableText} onPress={() => this.props.navigation.navigate('OrderInvoice')}>ORDER ID</Text>
               <Text style={tableText}>PRICE</Text>
-              <Text style={tableText}>TIME ORDER PLACED</Text>
-              <Text style={tableText}>TIME ORDER ACCEPTED</Text>
+              <Text style={tableText}>ORDER PLACED TIME</Text>
+              <Text style={tableText}>ORDER ACCEPTED TIME</Text>
             </View>
           </View>
       </ScrollView>

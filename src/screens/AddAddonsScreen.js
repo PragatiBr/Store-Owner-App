@@ -5,37 +5,47 @@ import SelectDropdown from 'react-native-select-dropdown';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-export default class AddCategoryScreen extends Component {
+export default class AddAddonsScreen extends Component {
   constructor(props){
     super(props)
     this.state = {
-      catName : '',
-      type: ''
+      addonName : '',
+      price: '',
+      addonsCategory: '',
     }
   }
   render(){
-    var data = ["Single Selection", "Multiple Selection"];
+    var data = ["Drink", "Pizza", "Pasta", "Momos", "Other Category"];
     return(
       <View style={{ backgroundColor: 'white', flex :1}}>
         <View style={styles.containerStyle}>
-          <Text style={styles.textStyle}>Add New Addon Category</Text>
-          <Icon name="clear" size={25} onPress={() => this.props.navigation.navigate('AddonCategory')} />
+          <Text style={styles.textStyle}>Add New Addon</Text>
+          <Icon name="clear" size={25} onPress={() => this.props.navigation.navigate('Addons')} />
         </View>
         <View style={styles.containerStyle}>
-          <Text style={styles.labelStyle}><Text style={{ color: 'red' }}>*</Text>Addon Category Name: </Text>
+          <Text style={styles.labelStyle}><Text style={{ color: 'red' }}>*</Text>Addon Name: </Text>
           <TextInput
-            placeholder="Addon Category Name"
-            value={this.state.catName}
-            onChangeText={name => this.state({ catName: name })}
+            placeholder="Addon Name"
+            value={this.state.addonName}
+            onChangeText={addonName => this.setState(addonName)}
             style={styles.inputStyle}
           />
         </View>
         <View style={styles.containerStyle}>
-          <Text style={styles.labelStyle}><Text style={{ color: 'red' }}>*</Text>Type: </Text>
+          <Text style={styles.labelStyle}><Text style={{ color: 'red' }}>*</Text>Price: </Text>
+          <TextInput
+            placeholder="Addon Price in $"
+            value={this.state.price}
+            onChangeText={price => this.setState({price})}
+            style={styles.inputStyle}
+          />
+        </View>
+        <View style={styles.containerStyle}>
+          <Text style={styles.labelStyle}><Text style={{ color: 'red' }}>*</Text>Addon's Category: </Text>
           <SelectDropdown
             data={data}
-            onSelect={(type) => this.setState({type})}
-            defaultButtonText={"Single Selection"}
+            onSelect={(addonsCategory) => this.setState({addonsCategory})}
+            defaultButtonText={"Select Category"}
             buttonTextAfterSelection={(selectedItem, index) => {
               return selectedItem;
             }}

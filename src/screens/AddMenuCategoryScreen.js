@@ -1,62 +1,29 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, TextInput } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import SelectDropdown from 'react-native-select-dropdown';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-export default class AddCategoryScreen extends Component {
+export default class AddMenuCategory extends Component {
   constructor(props){
     super(props)
     this.state = {
-      catName : '',
-      type: ''
+      name : '',
     }
   }
   render(){
-    var data = ["Single Selection", "Multiple Selection"];
     return(
       <View style={{ backgroundColor: 'white', flex :1}}>
         <View style={styles.containerStyle}>
-          <Text style={styles.textStyle}>Add New Addon Category</Text>
-          <Icon name="clear" size={25} onPress={() => this.props.navigation.navigate('AddonCategory')} />
+          <Text style={styles.textStyle}>Add New Item Category</Text>
+          <Icon name="clear" size={25} onPress={() => this.props.navigation.navigate('MenuCategory')} />
         </View>
         <View style={styles.containerStyle}>
-          <Text style={styles.labelStyle}><Text style={{ color: 'red' }}>*</Text>Addon Category Name: </Text>
+          <Text style={styles.labelStyle}><Text style={{ color: 'red' }}>*</Text>Name: </Text>
           <TextInput
-            placeholder="Addon Category Name"
-            value={this.state.catName}
-            onChangeText={name => this.state({ catName: name })}
+            placeholder="Enter Category Name"
+            value={this.state.name}
+            onChangeText={name => this.state({ name })}
             style={styles.inputStyle}
-          />
-        </View>
-        <View style={styles.containerStyle}>
-          <Text style={styles.labelStyle}><Text style={{ color: 'red' }}>*</Text>Type: </Text>
-          <SelectDropdown
-            data={data}
-            onSelect={(type) => this.setState({type})}
-            defaultButtonText={"Single Selection"}
-            buttonTextAfterSelection={(selectedItem, index) => {
-              return selectedItem;
-            }}
-            rowTextForSelection={(item, index) => {
-              return item;
-            }}
-            buttonStyle={styles.dropdown1BtnStyle}
-            buttonTextStyle={styles.dropdown1BtnTxtStyle}
-            renderDropdownIcon={(isOpened) => {
-              return (
-                <FontAwesome
-                  name={isOpened ? "chevron-up" : "chevron-down"}
-                  color={"grey"}
-                  size={18}
-                />
-              );
-            }}
-            dropdownIconPosition={"right"}
-            dropdownStyle={styles.dropdown1DropdownStyle}
-            rowStyle={styles.dropdown1RowStyle}
-            rowTextStyle={styles.dropdown1RowTxtStyle}
           />
         </View>
         <Text style={styles.buttonStyle}>Save  <MaterialCommunityIcons name="database-import" size={20} color='white' /></Text>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TextInput } from 'react-native';
+import { View, Text, StyleSheet, TextInput, FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export default class TableSetupScreen extends Component {
@@ -7,30 +7,38 @@ export default class TableSetupScreen extends Component {
     super(props)
     this.state = {
       isComponentVisible: 'false',
-      data: {
-        id: 1,
-        name: 'afdf',
-      }
+      data: [
+        {
+          id: 1,
+          name: 'Table Number',
+          seats: 'No.of Seats',
+        },
+        {
+          id: 2,
+          name: 'Table Number',
+          seats: 'No.of Seats',
+        }
+      ]
     }
   }
 
-  addTableComponent = () => {
+  renderTableComponent = (itemData) => {
     console.log('button pressed');
     return (
       <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginLeft: 10, marginRight: 70, marginTop: 10 }}>
         <View>
-          <Text style={styles.tableTextStyle}>Table Number*</Text>
+          <Text style={styles.tableTextStyle}>{itemData.item.name}*</Text>
           <TextInput style={styles.inputStyle} />
         </View>
-        <View>
-          <Text style={styles.tableTextStyle}>No Of Seats*</Text>
+        <View style={{ paddingLeft: 20}}>
+          <Text style={styles.tableTextStyle}>{itemData.item.seats}*</Text>
           <TextInput style={styles.inputStyle} />
         </View>
         <View style={styles.clearButton}>
           <Icon
             color={'white'}
             name="clear"
-            size={30}
+            size={20}
           />
         </View>
       </View>
@@ -56,12 +64,17 @@ export default class TableSetupScreen extends Component {
             <TextInput style={inputStyle} />
           </View>
         </View>
+        <FlatList 
+          data={this.state.data}
+          keyExtractor={item => item.id}
+          renderItem={(itemData) => this.renderTableComponent(itemData)}
+        />
         <View style={addButton}>
           <Icon
             color={'white'}
             name="add"
             size={30}
-            onPress={this.addTableComponent}
+            onPress={this.renderTableComponent}
           />
         </View>
       </View>
@@ -111,7 +124,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'blue',
     width: 40,
     height: 40,
-    marginTop: 20,
+    //marginTop: 20,
     borderRadius: 8,
     alignItems: 'center',
     marginLeft: 10,
@@ -119,12 +132,11 @@ const styles = StyleSheet.create({
   },
   clearButton: {
     backgroundColor: 'red',
-    width: 40,
-    height: 40,
-    marginTop: 20,
+    width: 20,
+    height: 20,
+    marginTop: 25,
     borderRadius: 40 / 2,
     alignItems: 'center',
     marginLeft: 10,
-    padding: 5,
   }
 });

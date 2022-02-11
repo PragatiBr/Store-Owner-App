@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createDrawerNavigator, DrawerItemList, } from "@react-navigation/drawer";
+import { createDrawerNavigator, DrawerItem, DrawerItemList, DrawerContentScrollView } from "@react-navigation/drawer";
 import { LogBox, View, StyleSheet, Image, Text } from 'react-native';
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
@@ -17,6 +17,17 @@ import AdditionalInfo from "./screens/AdditionalInfoScreen";
 import ItemsMenuScreen from "./screens/Items&MenuScreen";
 import AddonCategory from "./screens/AddonCategoryScreen";
 import AddCategoryScreen from "./screens/AddAddonCategoryScreen";
+import BookingsScreen from "./screens/BookingsScreen";
+import AssignTable from "./screens/AssignTableScreen";
+import OrdersScreen from "./screens/OrdersScreen";
+import EarningsScreen from "./screens/EarningsScreen";
+import SettingsScreen from "./screens/SettingsScreen";
+import Addons from "./screens/AddonsScreen";
+import AddAddonsScreen from "./screens/AddAddonsScreen";
+import MenuCategory from "./screens/MenuCategoryScreen";
+import AddMenuCategory from "./screens/AddMenuCategoryScreen";
+import ItemsScreen from "./screens/ItemsScreen";
+import AddItem from "./screens/AddItemScreen";
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -35,21 +46,28 @@ const Home = () => {
       <Stack.Screen name="AddonCategory" component={AddonCategory}  />
       <Stack.Screen name="Home" component={StoresScreen} />
       <Stack.Screen name="AddCategory" component={AddCategoryScreen} />
-
+      <Stack.Screen name="Addons" component={Addons} />
+      <Stack.Screen name="AddAddons" component={AddAddonsScreen} />
+      <Stack.Screen name="MenuCategory" component={MenuCategory} />
+      <Stack.Screen name="AddMenu" component={AddMenuCategory} />
+      <Stack.Screen name="Items" component={ItemsScreen} />
+      <Stack.Screen name="AddItem" component={AddItem} />
     </Stack.Navigator>
   );
 }
 
 const CustomDrawerContentComponent = (props) => {
   return (
-    <View style={styles.drawerHeader}>
-      <Image
-        style={styles.drawerImage}
-        source={{ uri:('https://reactnative.dev/img/tiny_logo.png')}} 
-      />
-      <Text style={styles.textStyle}>User Logo</Text>
-      <DrawerItemList {...props} />
-    </View>
+    <DrawerContentScrollView>
+        <View style={styles.drawerHeader}>
+        <Image
+          style={styles.drawerImage}
+          source={{ uri:('https://reactnative.dev/img/tiny_logo.png')}} 
+        />
+        <Text style={styles.textStyle}>User Logo</Text>
+        </View>
+        <DrawerItemList {...props} />
+    </DrawerContentScrollView>   
   );
 }
 
@@ -73,12 +91,21 @@ class App extends Component{
           </Stack.Navigator>
         : <Drawer.Navigator 
             initialRouteName="Feed" 
-            screenOptions={{ headerShown: false }}
-            //drawerContent={(props) => <CustomDrawerContentComponent {...props} />} 
+            screenOptions={{ headerShown: false, drawerStyle: {
+              backgroundColor: 'lightsteelblue',
+              width: 200,
+              overlayColor: 'transparent',
+            }, }}
+            drawerContent={(props) => <CustomDrawerContentComponent {...props} />}
           >
-            <Drawer.Screen name="Feed" component={Home} options={{ drawerLabel: 'Dashboard' }} />
-            <Drawer.Screen name="Stores" component={StoresScreen} />
-            <Drawer.Screen name="Items Menu" component={ItemsMenuScreen} />
+            <Drawer.Screen name="Feed" component={Home} options={{ drawerLabel: 'DASHBOARD' }} />
+            <Drawer.Screen name="Stores" component={StoresScreen} options={{ drawerLabel: 'STORES' }} />
+            <Drawer.Screen name="ItemsMenu" component={ItemsMenuScreen} options={{ drawerLabel: 'ITEMS & MENU' }} />
+            <Drawer.Screen name="Bookings" component={BookingsScreen} options={{ drawerLabel: 'BOOKINGS' }} />
+            <Drawer.Screen name="AssignTable" component={AssignTable} options={{ drawerLabel: 'ASSIGN TABLE' }} />
+            <Drawer.Screen name="Orders" component={OrdersScreen} options={{ drawerLabel: 'ORDERS' }} />
+            <Drawer.Screen name="Earnings" component={EarningsScreen} options={{ drawerLabel: 'EARNINGS' }} />
+            <Drawer.Screen name="Settings" component={SettingsScreen} options={{ drawerLabel: 'SETTINGS' }} />
           </Drawer.Navigator>}
       </NavigationContainer>
     );
@@ -91,21 +118,23 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
     flexDirection: 'row',
     justifyContent:'space-between',
+    marginTop: -5,
   },
   drawerImage: {
     height: 50,
     width: 50,
-    borderRadius: 75,
-    backgroundColor:'silver'
+    borderRadius: 100/2,
+    backgroundColor:'silver',
+    margin: 20,
   },
   textStyle:{
     backgroundColor: 'silver',
     color:'black',
-    marginLeft: 100,
+    //marginLeft: 100,
     width: 80,
     textAlign:'center',
     alignContent:'center',
-  }
+  },
 });
 
 export default App;

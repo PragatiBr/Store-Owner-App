@@ -2,22 +2,28 @@ import React, { Component } from "react";
 import { View, Text, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-export default class ItemsMenuScreen extends Component{
-  render(){
-    return(
+export default class ItemsMenuScreen extends Component {
+  render() {
+    return (
       <View>
         <View style={{
           backgroundColor: 'lightgrey',
-          borderRadius: 50/2,
+          borderRadius: 50 / 2,
           width: 55,
           height: 45,
           position: 'absolute',
         }}>
-          <Text style={{ color: 'black', fontSize: 20, fontWeight: 'bold', textAlign: 'center', paddingVertical: 8 
+          <Text style={{
+            color: 'black', fontSize: 20, fontWeight: 'bold', textAlign: 'center', paddingVertical: 8
           }}>Logo</Text>
         </View>
         <Icon name="menu" size={30} style={styles.iconStyle} onPress={() => this.props.navigation.openDrawer()} />
-        <Text onPress={() => this.props.navigation.navigate('AddonCategory')}>Items And Menu Screen </Text>
+        <View style={styles.containerStyle}>
+          <Text style={styles.textStyle} onPress={() => this.props.navigation.navigate('AddonCategory')}>Addon Category</Text>
+          <Text style={styles.textStyle} onPress={() => this.props.navigation.navigate('Addons')}>Addons</Text>
+          <Text style={styles.textStyle} onPress={() => this.props.navigation.navigate('MenuCategory')}>Menu Categories</Text>
+          <Text style={styles.textStyle} onPress={() => this.props.navigation.navigate('Items')}>Items</Text>
+        </View>
       </View>
     );
   }
@@ -32,4 +38,23 @@ const styles = StyleSheet.create({
     padding: 5,
     width: 50,
   },
+  containerStyle:{
+    alignItems:'center',
+    marginHorizontal: 20,
+    marginVertical: 10,
+  },
+  textStyle:{
+    borderWidth: 1,
+    borderColor: 'rgba(111, 202, 186, 1)',
+    backgroundColor: 'rgba(111, 202, 186, 1)',
+    color: 'white',
+    width: 200,
+    height: 40,
+    textAlign: 'center',
+    padding: 10,
+    fontWeight: '600',
+    fontSize: 15,
+    marginVertical: 10,
+    borderRadius:5,
+  }
 });
