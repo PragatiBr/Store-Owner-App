@@ -6,7 +6,11 @@ export default class TableSetupScreen extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      isComponentVisible: 'false'
+      isComponentVisible: 'false',
+      data: {
+        id: 1,
+        name: 'afdf',
+      }
     }
   }
 
@@ -14,26 +18,21 @@ export default class TableSetupScreen extends Component {
     console.log('button pressed');
     return (
       <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginLeft: 10, marginRight: 70, marginTop: 10 }}>
-        {this.state.isComponentVisible 
-        ? <>
-            <View>
-              <Text style={styles.tableTextStyle}>Table Number*</Text>
-              <TextInput style={styles.inputStyle} />
-            </View>
-            <View>
-              <Text style={styles.tableTextStyle}>No Of Seats*</Text>
-              <TextInput style={styles.inputStyle} />
-            </View>
-            <View style={styles.clearButton}>
-              <Icon
-                color={'white'}
-                name="clear"
-                size={30}
-              />
-            </View>
-          </>
-        : null
-        }
+        <View>
+          <Text style={styles.tableTextStyle}>Table Number*</Text>
+          <TextInput style={styles.inputStyle} />
+        </View>
+        <View>
+          <Text style={styles.tableTextStyle}>No Of Seats*</Text>
+          <TextInput style={styles.inputStyle} />
+        </View>
+        <View style={styles.clearButton}>
+          <Icon
+            color={'white'}
+            name="clear"
+            size={30}
+          />
+        </View>
       </View>
     );
   }
@@ -44,7 +43,7 @@ export default class TableSetupScreen extends Component {
       <View style={{ backgroundColor: 'white', flex: 1 }}>
         <View style={containerStyle}>
           <Text style={textStyle}>TABLE SETUP</Text>
-          <Text style={buttonStyle} onPress={() => this.props.navigation.navigate('Store')} >UPDATE</Text>
+          <Text style={buttonStyle} onPress={() => this.props.navigation.navigate('TableShift')} >UPDATE</Text>
         </View>
         <Text style={{ color: 'black', marginLeft: 10, }}>Add New Table</Text>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginLeft: 10, marginRight: 70, marginTop: 10 }}>
@@ -123,7 +122,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     marginTop: 20,
-    borderRadius: 40/2,
+    borderRadius: 40 / 2,
     alignItems: 'center',
     marginLeft: 10,
     padding: 5,

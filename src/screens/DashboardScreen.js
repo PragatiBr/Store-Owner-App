@@ -17,7 +17,17 @@ export default class DashboardScreen extends Component {
     } = styles;
     return (
       <ScrollView horizontal width={Dimensions.get('screen').width}>
-        <Icon name="menu" size={35} style={iconStyle} />
+        <View style={{
+          backgroundColor: 'lightgrey',
+          borderRadius: 50/2,
+          width: 55,
+          height: 45,
+          position: 'absolute',
+        }}>
+          <Text style={{ color: 'black', fontSize: 20, fontWeight: 'bold', textAlign: 'center', paddingVertical: 8 
+          }}>Logo</Text>
+        </View>
+        <Icon name="menu" size={30} style={iconStyle} onPress={() => this.props.navigation.openDrawer()} />
           {/* Left Side Section */}
           <View style={{ marginTop: 20 }}>
             <View style={containerStyle}>
@@ -92,7 +102,9 @@ const styles = StyleSheet.create({
   iconStyle: {
     backgroundColor: 'black',
     color: 'white',
-    position: 'absolute',
+    height: 35,
+    marginTop: 45,
+    padding: 5
   },
   imageStyle: {
     height: 60,

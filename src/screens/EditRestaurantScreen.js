@@ -228,7 +228,7 @@ export default class EditRestaurant extends Component {
           </View>
           <View style={{ marginHorizontal: 10, marginHorizontal: 25, flexDirection: 'row', marginVertical:25,  }}>
             <Icon name="power-off" size={38} color='red' style={iconStyle} onPress={() => this.props.navigation.navigate('Store')} />
-            <Text onPress={() => this.props.navigation.navigate('Store')} style={updateButtonstyle}>UPDATE</Text>
+            <Text onPress={() => this.props.navigation.navigate('Home')} style={updateButtonstyle}>UPDATE</Text>
           </View>
       </ScrollView>
     );

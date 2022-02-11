@@ -8,17 +8,17 @@ export default class StoresScreen extends Component{
     const { iconStyle, dotIconStyle, textStyle, containerStyle, imageStyle, tableShiftStyle } = styles;
     return (
       <ScrollView horizontal>
-        {/* <View style={{
+        <View style={{
           backgroundColor: 'lightgrey',
-          borderRadius: 100/2,
-          width: 50,
-          height: 50,
+          borderRadius: 50/2,
+          width: 55,
+          height: 45,
           position: 'absolute',
         }}>
-          <Text style={{ color: 'white', fontSize: 15, fontWeight: 'bold' 
+          <Text style={{ color: 'black', fontSize: 20, fontWeight: 'bold', textAlign: 'center', paddingVertical: 8 
           }}>Logo</Text>
-        </View> */}
-        <Icon name="menu" size={35} style={iconStyle} />
+        </View>
+        <Icon name="menu" size={30} style={iconStyle} onPress={() => this.props.navigation.openDrawer()} />
         <View style={{ marginTop: 40}}>
           <View style={containerStyle}>
             <TouchableOpacity onPress={() => this.props.navigation.navigate('Details')}>
@@ -27,7 +27,7 @@ export default class StoresScreen extends Component{
               </ImageBackground>
             </TouchableOpacity>
             <Text onPress={() => this.props.navigation.navigate('Edit')} style={textStyle}>EDIT</Text>
-            <Text style={tableShiftStyle}>TABLE & SHIFTS</Text>
+            <Text onPress={() => this.props.navigation.navigate('TableShift')} style={tableShiftStyle}>TABLE & SHIFTS</Text>
             <Text style={textStyle}>SETTINGS</Text>
           </View>
           <View style={containerStyle}>
@@ -54,7 +54,9 @@ const styles = StyleSheet.create({
   iconStyle:{
     backgroundColor: 'black',
     color: 'white',
-    position: 'absolute',
+    height: 35,
+    marginTop: 45,
+    padding: 5
   },
   imageStyle:{
     width: 150,

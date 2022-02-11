@@ -9,7 +9,7 @@ export default class RestaurantDetail extends Component{
       <View>
         <Icon name="menu" size={35} style={iconStyle} /> 
         <View style={{ marginTop: 50}}>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate('Store')}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('Home')}>
             <Image source={require('../assets/images/shop-store.jpg')} style={imageStyle} />
           </TouchableOpacity>
           <Text style={headingStyle}>Restaurant name</Text>

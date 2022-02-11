@@ -7,7 +7,7 @@ export default class TableShiftScreen extends Component{
     return(
       <View style={{ backgroundColor: 'black', flex: 1 }}>
         <View style={styles.containerStyle}>
-          <Text onPress={() => this.props.navigation.navigate('ShiftInformation')} style={styles.textStyle}>Shift Information</Text>
+          <Text onPress={() => this.props.navigation.navigate('ShiftInfo')} style={styles.textStyle}>Shift Information</Text>
         </View>
         <View style={styles.containerStyle}>
           <Text onPress={() => this.props.navigation.navigate('TableSetup')} style={styles.textStyle}>Table Setup</Text>
@@ -18,7 +18,7 @@ export default class TableShiftScreen extends Component{
         <View style={styles.buttonStyle}>
           <TouchableOpacity onPress={() => this.props.navigation.navigate('Store')}>
             <Icon name="back" size={20} color="black" style={{ alignSelf: 'center' }} />
-            <Text style={styles.buttonTextStyle}>Back</Text>
+            <Text onPress={() => this.props.navigation.navigate('Home')} style={styles.buttonTextStyle}>Back</Text>
           </TouchableOpacity>
         </View>
       </View>
