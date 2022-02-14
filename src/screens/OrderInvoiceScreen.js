@@ -9,7 +9,7 @@ export default class OrderInvoice extends Component {
       <View>
         <View style={headerView}>
           <Text style={textStyle}>Order Id</Text>
-          <Text style={{ borderWidth: 1, width: 60, textAlign: 'center', color: 'black', fontWeight: '600', paddingTop: 5, fontSize: 18 }}>PRINT</Text>
+          <Text style={{ borderWidth: 1, width: 60, textAlign: 'center', color: 'black', fontWeight: '600', padding: 3, fontSize: 18, marginBottom: 10 }}>Print</Text>
           <Icon name="clear" size={30} style={iconStyle} onPress={() => this.props.navigation.navigate('Dashboard')} />
         </View>
         <View style={{ marginTop: 10 }}>
@@ -31,7 +31,9 @@ export default class OrderInvoice extends Component {
           <Text style={orderDetailStyle}>Coupon : None</Text>
           <Text style={orderDetailStyle}>Store Charges : $ </Text>
           <Text style={orderDetailStyle}>Tax : 3.64%</Text>
+          <Separator />
           <Text style={orderDetailStyle}>Total : $ 40</Text>
+          <Separator />
         </View>
       </View>
     );
@@ -70,5 +72,6 @@ const styles = StyleSheet.create({
     color: 'black',
     fontWeight: '700',
     fontSize: 15,
+    paddingTop: 5,
   }
 });

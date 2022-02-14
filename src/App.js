@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createDrawerNavigator, DrawerItem, DrawerItemList, DrawerContentScrollView } from "@react-navigation/drawer";
+import { createDrawerNavigator, DrawerItemList, DrawerContentScrollView } from "@react-navigation/drawer";
 import { LogBox, View, StyleSheet, Image, Text } from 'react-native';
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
@@ -28,6 +28,8 @@ import MenuCategory from "./screens/MenuCategoryScreen";
 import AddMenuCategory from "./screens/AddMenuCategoryScreen";
 import ItemsScreen from "./screens/ItemsScreen";
 import AddItem from "./screens/AddItemScreen";
+import FilterScreen from "./screens/FilterBookingScreen";
+import AddBooking from "./screens/AddBookingScreen";
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -52,6 +54,8 @@ const Home = () => {
       <Stack.Screen name="AddMenu" component={AddMenuCategory} />
       <Stack.Screen name="Items" component={ItemsScreen} />
       <Stack.Screen name="AddItem" component={AddItem} />
+      <Stack.Screen name="Filter" component={FilterScreen} />
+      <Stack.Screen name="AddBooking" component={AddBooking} />
     </Stack.Navigator>
   );
 }
@@ -130,7 +134,6 @@ const styles = StyleSheet.create({
   textStyle:{
     backgroundColor: 'silver',
     color:'black',
-    //marginLeft: 100,
     width: 80,
     textAlign:'center',
     alignContent:'center',

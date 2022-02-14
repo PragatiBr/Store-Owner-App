@@ -27,8 +27,8 @@ export default class AddItem extends Component {
       categoryData: ['Pizza', 'Salads', 'Main Course', 'Berger'],
     }
   }
+
   render() {
-    var data = ["Single Selection", "Multiple Selection"];
     return (
       <View style={{ backgroundColor: 'white', flex: 1 }}>
         <View style={styles.containerStyle}>
@@ -40,7 +40,7 @@ export default class AddItem extends Component {
           <TextInput
             placeholder="Item Name"
             value={this.state.name}
-            onChangeText={name => this.state({ name })}
+            onChangeText={name => this.setState({ name })}
             style={styles.inputStyle}
           />
         </View>
@@ -48,10 +48,10 @@ export default class AddItem extends Component {
           <Text style={styles.labelStyle}>Item Description: </Text>
           <TextInput
             placeholder="Item Description"
+            multiline={true}
             value={this.state.description}
-            onChangeText={description => this.state({ description })}
+            onChangeText={description => this.setState({ description })}
             style={styles.inputStyle}
-            maxLength={30}
           />
         </View>
         <View style={styles.containerStyle}>
@@ -59,7 +59,7 @@ export default class AddItem extends Component {
           <TextInput
             placeholder="POS Product ID"
             value={this.state.productId}
-            onChangeText={productId => this.state({ productId })}
+            onChangeText={productId => this.setState({ productId })}
             style={styles.inputStyle}
           />
         </View>
@@ -68,7 +68,7 @@ export default class AddItem extends Component {
           <TextInput
             placeholder="POS Product Size"
             value={this.state.size}
-            onChangeText={size => this.state({ size })}
+            onChangeText={size => this.setState({ size })}
             style={styles.inputStyle}
           />
         </View>
@@ -77,7 +77,7 @@ export default class AddItem extends Component {
           <TextInput
             placeholder="Item Price in $"
             value={this.state.price}
-            onChangeText={price => this.state({ price })}
+            onChangeText={price => this.setState({ price })}
             style={styles.inputStyle}
           />
         </View>
@@ -144,7 +144,7 @@ export default class AddItem extends Component {
           <TextInput
             placeholder="Addons Category"
             value={this.state.addonsCategory}
-            onChangeText={addonsCategory => this.state({ addonsCategory })}
+            onChangeText={addonsCategory => this.setState({ addonsCategory })}
             style={styles.inputStyle}
           />
         </View>
@@ -153,7 +153,7 @@ export default class AddItem extends Component {
           <TextInput
             placeholder="Item Image"
             value={this.state.image}
-            onChangeText={image => this.state({ image })}
+            onChangeText={image => this.setState({ image })}
             style={styles.inputStyle}
           />
         </View>
@@ -161,36 +161,37 @@ export default class AddItem extends Component {
           <ToggleSwitch
             isOn={this.state.isRecommended}
             onColor="green"
-            offColor="white"
+            offColor="grey"
             label="Is Recommended?"
-            labelStyle={{ color: "black", fontWeight: "900" }}
-            size="large"
+            labelStyle={styles.labelStyle}
             onToggle={isOn => this.setState({ isRecommended: isOn })}
           />
           <ToggleSwitch
-            isOn={this.state.isPopular}
-            onColor="green"
-            offColor="white"
-            label="Is Popular?"
-            labelStyle={labelStyle}
-            onToggle={isOn => this.setState({ isPopular: isOn })}
-          />          
-          <ToggleSwitch
             isOn={this.state.isNew}
             onColor="green"
-            offColor="white"
+            offColor="grey"
             label="Is New?"
-            labelStyle={labelStyle}
+            labelStyle={styles.labelStyle}
             onToggle={isOn => this.setState({ isNew: isOn })}
-          />          
-          <ToggleSwitch
-            isOn={this.state.isVeg}
-            onColor="green"
-            offColor="white"
-            label="Is Veg?"
-            labelStyle={labelStyle}
-            onToggle={isOn => this.setState({ isVeg: isOn })}
-          />          
+          />    
+          </View>
+          <View style={styles.containerStyle}>          
+            <ToggleSwitch
+              isOn={this.state.isPopular}
+              onColor="green"
+              offColor="grey"
+              label="Is Popular?"
+              labelStyle={[styles.labelStyle, {paddingRight: 40}]}
+              onToggle={isOn => this.setState({ isPopular: isOn })}
+            />     
+            <ToggleSwitch
+              isOn={this.state.isVeg}
+              onColor="green"
+              offColor="grey"
+              label="Is Veg?"
+              labelStyle={styles.labelStyle}
+              onToggle={isOn => this.setState({ isVeg: isOn })}
+            />          
         </View>
         <Text style={styles.buttonStyle}>Save  <MaterialCommunityIcons name="database-import" size={20} color='white' /></Text>
       </View>
@@ -251,6 +252,6 @@ const styles = StyleSheet.create({
     padding: 5,
     fontWeight: 'bold',
     fontSize: 15,
-    marginTop: 10,
-  }
+    marginTop: 20,
+  },
 });

@@ -22,15 +22,27 @@ export default class TableSetupScreen extends Component {
     }
   }
 
+  renderList = () => {
+    return <FlatList
+      data={this.state.data}
+      keyExtractor={item => item.id}
+      renderItem={(itemData) => this.renderTableComponent(itemData)}
+    />;
+  }
+
+  deleteItemById = id => {
+    const filteredData = this.state.data.filter(item => item.id !== id);
+    this.setState({ data: filteredData });
+  }
+
   renderTableComponent = (itemData) => {
-    console.log('button pressed');
     return (
       <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginLeft: 10, marginRight: 70, marginTop: 10 }}>
         <View>
           <Text style={styles.tableTextStyle}>{itemData.item.name}*</Text>
           <TextInput style={styles.inputStyle} />
         </View>
-        <View style={{ paddingLeft: 20}}>
+        <View style={{ paddingLeft: 20 }}>
           <Text style={styles.tableTextStyle}>{itemData.item.seats}*</Text>
           <TextInput style={styles.inputStyle} />
         </View>
@@ -39,6 +51,7 @@ export default class TableSetupScreen extends Component {
             color={'white'}
             name="clear"
             size={20}
+            onPress={() => this.deleteItemById(itemData.item.id)}
           />
         </View>
       </View>
@@ -64,17 +77,17 @@ export default class TableSetupScreen extends Component {
             <TextInput style={inputStyle} />
           </View>
         </View>
-        <FlatList 
+        {/* <FlatList 
           data={this.state.data}
           keyExtractor={item => item.id}
           renderItem={(itemData) => this.renderTableComponent(itemData)}
-        />
+        /> */}
         <View style={addButton}>
           <Icon
             color={'white'}
             name="add"
             size={30}
-            onPress={this.renderTableComponent}
+            onPress={() => this.renderList()}
           />
         </View>
       </View>
@@ -124,7 +137,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'blue',
     width: 40,
     height: 40,
-    //marginTop: 20,
     borderRadius: 8,
     alignItems: 'center',
     marginLeft: 10,

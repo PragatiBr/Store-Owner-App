@@ -35,24 +35,24 @@ export default class ItemsScreen extends Component{
         <ScrollView horizontal >
           <View>
             <View style={containerStyle}>
-              <Text style={[textStyle, {width: 150}]}>Image</Text>
+              <Text style={[textStyle, {width: 100}]}>Image</Text>
               <Text style={[textStyle, {width: 100}]}>Name</Text>
-              <Text style={[textStyle, {width: 200}]}>Store's Name</Text>
-              <Text style={[textStyle, {width: 200}]}>Item's Category</Text>
-              <Text style={[textStyle, {width: 200}]}>Price</Text>
-              <Text style={[textStyle, {width: 200}]}>Attributes</Text>
-              <Text style={[textStyle, {width: 150, paddingLeft:40}]}>Created At</Text>
+              <Text style={[textStyle, {width: 150}]}>Store's Name</Text>
+              <Text style={[textStyle, {width: 100}]}>Item's Category</Text>
+              <Text style={[textStyle, {width: 150, paddingLeft:40}]}>Price</Text>
+              <Text style={[textStyle, {width: 150,paddingLeft:40}]}>Attributes</Text>
+              <Text style={[textStyle, {width: 120, paddingLeft:40}]}>Created At</Text>
               <Text style={{width: 100, paddingLeft:60}}><Ionicons name="chevron-down-circle-outline" size={20} color='black' /></Text>
             </View>
             <Divider width={1} color='rgba(192,192,192,0.5)' />
             <View style={containerStyle}>
-              <Text style={{ width: 150 }}><Image source={{ uri:'https://demo.ozeatsonline.com.au/assets/img/items/16442900557ioJzLFpow.jpg' }} style={styles.imageStyle} /></Text>
+              <Image source={{ uri:'https://demo.ozeatsonline.com.au/assets/img/items/16442900557ioJzLFpow.jpg' }} style={styles.imageStyle} />
               <Text style={{ width: 100}}>PAPPARDELLE AL RAGU</Text>
-              <Text style={{ width: 200}}>Est Ovest</Text>
-              <Text style={{ width: 200}}>Pizza</Text>
-              <Text style={{ width: 200}}>28.00</Text>
-              <Text style={{ width: 200}}>New</Text>
-              <Text style={{ width: 150}}>3:14 10/02/2022</Text>
+              <Text style={{ width: 150}}>Est Ovest</Text>
+              <Text style={{ width: 150}}>Pizza</Text>
+              <Text style={{ width: 150}}>28.00</Text>
+              <Text style={{ width: 150}}>New</Text>
+              <Text style={{ width: 120}}>3:14 10/02/2022</Text>
               <Icon name="edit" size={25} /><Icon name="delete" size={25} color='red' />
             </View>
             <Divider width={1} color='rgba(192,192,192,0.5)' />
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     //height: 60,
     alignItems: 'center',
     paddingHorizontal: 10,
-    paddingVertical: 15,
+    marginVertical: 15,
   },
   addButton: {
     backgroundColor: 'blue',
@@ -95,8 +95,9 @@ const styles = StyleSheet.create({
     color:'black',
   },
   imageStyle:{
-    width: 50,
-    height: 50,
-    borderRadius:5
-  }
+    width: 80,
+    height: 80,
+    borderRadius: 10,
+    marginRight:10,
+  },
 });

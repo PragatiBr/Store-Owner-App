@@ -4,13 +4,15 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export default class RestaurantDetail extends Component{
   render(){
-    const { iconStyle, imageStyle, textStyle, headingStyle } = styles; 
+    const {image}  = this.props.route.params; 
+    const { iconStyle, imageStyle, textStyle, headingStyle } = styles;
+    
     return(
       <View>
-        <Icon name="menu" size={35} style={iconStyle} /> 
+        <Icon name="menu" size={35} style={iconStyle} onPress={() => this.props.navigation.openDrawer()} /> 
         <View style={{ marginTop: 50}}>
           <TouchableOpacity onPress={() => this.props.navigation.navigate('Home')}>
-            <Image source={require('../assets/images/shop-store.jpg')} style={imageStyle} />
+            <Image source={JSON.stringify(image)} style={imageStyle} />
           </TouchableOpacity>
           <Text style={headingStyle}>Restaurant name</Text>
           <Text style={textStyle}>Location: 79 Halifax Street</Text>

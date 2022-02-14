@@ -23,12 +23,12 @@ export default class MenuCategory extends Component{
             style={inputStyle}
           />
           <View style={addButton}>
-          <Icon
-            color={'white'}
-            name="add"
-            size={25}
-            onPress={() => this.props.navigation.navigate('AddMenu')}
-          />
+            <Icon
+              color={'white'}
+              name="add"
+              size={25}
+              onPress={() => this.props.navigation.navigate('AddMenu')}
+            />
         </View>
         </View>
         <Divider width={3} color='rgba(192,192,192,0.5)' />
@@ -38,7 +38,7 @@ export default class MenuCategory extends Component{
               <Text style={[textStyle, {width: 150}]}>Category Id</Text>
               <Text style={[textStyle, {width: 100}]}>Name</Text>
               <Text style={[textStyle, {width: 200}]}>No.of Items</Text>
-              <Text style={[textStyle, {width: 200}]}>Status</Text>
+              <Text style={[textStyle, {width: 200, paddingLeft:30}]}>Status</Text>
               <Text style={[textStyle, {width: 150, paddingLeft:40}]}>Created At</Text>
               <Text style={{width: 100, paddingLeft:60}}><Ionicons name="chevron-down-circle-outline" size={20} color='black' /></Text>
             </View>

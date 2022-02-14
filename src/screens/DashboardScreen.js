@@ -16,7 +16,7 @@ export default class DashboardScreen extends Component {
       greenRectangle, 
     } = styles;
     return (
-      <ScrollView horizontal width={Dimensions.get('screen').width}>
+      <ScrollView horizontal width={Dimensions.get('window').width}>
         <View style={{
           backgroundColor: 'lightgrey',
           borderRadius: 50/2,
@@ -47,7 +47,7 @@ export default class DashboardScreen extends Component {
               <Text style={textStyle}>$1500</Text>
             </View>
           </View>
-          <Divider orientation="vertical" width={1} style={{marginLeft: 20}} color='black' height={Dimensions.get('screen').height} />
+          <Divider orientation="vertical" width={1} style={{marginLeft: 20}} color='black' height={Dimensions.get('window').height} />
           {/* New Orders Section */}
           <View style={{ flexDirection:'column' }}>
             <Text style={headingText}>
