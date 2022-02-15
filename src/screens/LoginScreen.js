@@ -94,8 +94,8 @@ const styles = StyleSheet.create({
   containerStyle: {
     justifyContent: 'center',
     elevation: 1,
-    marginHorizontal: 25,
-    marginTop: 100,
+    marginHorizontal: Dimensions.get('window').width - 700,
+    marginVertical: Dimensions.get('window').height - 900,
     backgroundColor: 'rgba(255, 255, 255, 0.1)',
   },
   backgroundImageStyle: {

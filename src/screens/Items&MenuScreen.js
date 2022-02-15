@@ -40,20 +40,18 @@ const styles = StyleSheet.create({
   },
   containerStyle:{
     alignItems:'center',
-    marginHorizontal: 20,
-    marginVertical: 10,
   },
   textStyle:{
     borderWidth: 1,
     borderColor: 'rgba(111, 202, 186, 1)',
     backgroundColor: 'rgba(111, 202, 186, 1)',
     color: 'white',
-    width: 200,
-    height: 40,
+    width: 400,
+    height: 50,
     textAlign: 'center',
     padding: 10,
     fontWeight: '600',
-    fontSize: 15,
+    fontSize: 20,
     marginVertical: 10,
     borderRadius:5,
   }

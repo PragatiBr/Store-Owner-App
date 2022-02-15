@@ -24,16 +24,15 @@ export default class AddonCategory extends Component {
             style={inputStyle}
           />
           <View style={addButton}>
-          <Icon
-            color={'white'}
-            name="add"
-            size={25}
-            onPress={() => this.props.navigation.navigate('AddCategory')}
-          />
-        </View>
+            <Icon
+              color={'white'}
+              name="add"
+              size={25}
+              onPress={() => this.props.navigation.navigate('AddCategory')}
+            />
+          </View>
         </View>
         <Divider width={3} color='rgba(192,192,192,0.5)' />
-        <ScrollView horizontal >
           <View>
             <View style={containerStyle}>
               <Text style={[textStyle, {width: 150}]}>Name</Text>
@@ -52,7 +51,6 @@ export default class AddonCategory extends Component {
             </View>
             <Divider width={1} color='rgba(192,192,192,0.5)' />
           </View>
-        </ScrollView>
       </View>
     );
   }
@@ -63,24 +61,23 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    //height: 60,
     alignItems: 'center',
     paddingHorizontal: 10,
-    paddingVertical: 15,
+    paddingVertical: 20,
   },
   addButton: {
     backgroundColor: 'blue',
-    width: 30,
-    height: 30,
+    width: 40,
+    height: 40,
     borderRadius: 8,
     alignSelf: 'center',
-    padding: 3,
+    padding: 6,
   },
   inputStyle :{
     backgroundColor: 'silver',
     borderRadius: 15,
     padding: 7,
-    width: 250,
+    width: 400,
     height: 30,
     paddingLeft: 20,
   },

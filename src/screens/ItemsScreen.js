@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     //height: 60,
     alignItems: 'center',
     paddingHorizontal: 10,
-    marginVertical: 15,
+    marginVertical: 20,
   },
   addButton: {
     backgroundColor: 'blue',
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'silver',
     borderRadius: 15,
     padding: 7,
-    width: 250,
+    width: 350,
     height: 30,
     paddingLeft: 20,
   },

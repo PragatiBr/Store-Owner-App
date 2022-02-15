@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Text, View, StyleSheet, Image, TextInput, ImageBackground, Dimensions } from 'react-native';
 import { Button } from '../components/common/Button';
 
-export default class RegisterScreen extends Component{
+export default class RegisterScreen extends Component {
   state = { name: '', phone: '', email: '', password: '' }
 
   renderButton() {
@@ -16,71 +16,71 @@ export default class RegisterScreen extends Component{
     );
   }
 
-  render(){
+  render() {
     const { containerStyle, textStyle, inputStyle, imageStyle, buttonViewStyle, horizontalLineStyle, backgroundImageStyle } = styles;
     return (
       <View>
         <ImageBackground source={require('../assets/images/bg-image.jpg')} resizeMode='cover' style={backgroundImageStyle} />
         <View style={containerStyle}>
-        <Image source={require('../assets/images/user.png')} style={imageStyle} />
-        <Text style={textStyle}>Register</Text>
-        <TextInput
-          style={inputStyle}
-          placeholder="Username"
-          value={this.state.name}
-          onChangeText={name => this.setState({ name })}
-          autoCapitalize="none"
-          autoCorrect={false}
-          keyboardType="default"
-          placeholderTextColor='black'
-        />
-        <TextInput
-          style={inputStyle}
-          placeholder="Phone"
-          value={this.state.phone}
-          onChangeText={phone => this.setState({ phone })}
-          autoCapitalize="none"
-          autoCorrect={false}
-          keyboardType="phone-pad"
-          placeholderTextColor='black'
-        />
-        <TextInput
-          style={inputStyle}
-          placeholder="Useremail"
-          value={this.state.email}
-          onChangeText={email => this.setState({ email })}
-          autoCapitalize="none"
-          autoCorrect={false}
-          keyboardType="email-address"
-          placeholderTextColor='black'
-        />
-        <TextInput
-          style={inputStyle}
-          secureTextEntry
-          placeholder="Password"
-          value={this.state.password}
-          onChangeText={password => this.setState({ password })}
-          autoCapitalize="none"
-          autoCorrect={false}
-          keyboardType="default"
-          placeholderTextColor='black'
-        />
-        <View style={buttonViewStyle}>
-          {this.renderButton()}
-        </View>
-        <View style={horizontalLineStyle}>
-          <View style={{ flex: 1, height: 1, backgroundColor: 'black' }} />
-          <View>
-            <Text style={{ width: 40, textAlign: 'center', color: 'black', fontSize: 18 }}>OR</Text>
+          <Image source={require('../assets/images/user.png')} style={imageStyle} />
+          <Text style={textStyle}>Register</Text>
+          <TextInput
+            style={inputStyle}
+            placeholder="Username"
+            value={this.state.name}
+            onChangeText={name => this.setState({ name })}
+            autoCapitalize="none"
+            autoCorrect={false}
+            keyboardType="default"
+            placeholderTextColor='black'
+          />
+          <TextInput
+            style={inputStyle}
+            placeholder="Phone"
+            value={this.state.phone}
+            onChangeText={phone => this.setState({ phone })}
+            autoCapitalize="none"
+            autoCorrect={false}
+            keyboardType="phone-pad"
+            placeholderTextColor='black'
+          />
+          <TextInput
+            style={inputStyle}
+            placeholder="Useremail"
+            value={this.state.email}
+            onChangeText={email => this.setState({ email })}
+            autoCapitalize="none"
+            autoCorrect={false}
+            keyboardType="email-address"
+            placeholderTextColor='black'
+          />
+          <TextInput
+            style={inputStyle}
+            secureTextEntry
+            placeholder="Password"
+            value={this.state.password}
+            onChangeText={password => this.setState({ password })}
+            autoCapitalize="none"
+            autoCorrect={false}
+            keyboardType="default"
+            placeholderTextColor='black'
+          />
+          <View style={buttonViewStyle}>
+            {this.renderButton()}
           </View>
-          <View style={{ flex: 1, height: 1, backgroundColor: 'black' }} />
+          <View style={horizontalLineStyle}>
+            <View style={{ flex: 1, height: 1, backgroundColor: 'black' }} />
+            <View>
+              <Text style={{ width: 40, textAlign: 'center', color: 'black', fontSize: 18 }}>OR</Text>
+            </View>
+            <View style={{ flex: 1, height: 1, backgroundColor: 'black' }} />
+          </View>
+          <View style={styles.footerView}>
+            <Text style={styles.footerText}>Already have an account?
+              <Text onPress={() => this.props.navigation.navigate('Login')} style={styles.footerLink}>  Login</Text>
+            </Text>
+          </View>
         </View>
-        <View style={styles.footerView}>
-          <Text style={styles.footerText}>Already have an account? 
-            <Text onPress={() => this.props.navigation.navigate('Login')} style={styles.footerLink}>  Login</Text>
-          </Text>
-        </View>
-      </View>
       </View>
     );
   }
@@ -90,11 +90,11 @@ const styles = StyleSheet.create({
   containerStyle: {
     justifyContent: 'center',
     elevation: 1,
-    marginHorizontal: 20,
-    marginTop: 100,
+    marginHorizontal: Dimensions.get('window').width - 700,
+    marginVertical: Dimensions.get('window').height - 900,
     backgroundColor: 'rgba(255, 255, 255, 0.1)',
   },
-  backgroundImageStyle:{
+  backgroundImageStyle: {
     height: Dimensions.get('screen').height,
     width: Dimensions.get('screen').width,
     flex: 1,
@@ -132,8 +132,8 @@ const styles = StyleSheet.create({
     height: 40,
   },
   horizontalLineStyle: {
-    flexDirection: 'row', 
-    alignItems: 'center', 
+    flexDirection: 'row',
+    alignItems: 'center',
     marginTop: 20,
     marginHorizontal: 10,
   },
@@ -146,10 +146,10 @@ const styles = StyleSheet.create({
     color: 'black',
   },
   footerView: {
-    alignItems:'center',
+    alignItems: 'center',
     marginVertical: 15,
   },
-  forgotPasswordStyle:{
+  forgotPasswordStyle: {
     color: "slateblue",
     fontSize: 18,
     marginVertical: 20,

@@ -35,8 +35,8 @@ export default class BookingsScreen extends Component {
             />
             <Text style={[buttonStyle, { backgroundColor: 'mediumturquoise', borderRadius: 10 }]} onPress={() => this.props.navigation.navigate('Filter')} >Filter</Text>
             <View>
-              <Text style={[buttonStyle, { backgroundColor: 'mediumturquoise', borderColor: 'mediumturquoise', width: 180 }]} onPress={() => this.props.navigation.navigate('AddBooking')} >+ADD BOOKING</Text>
-              <Text style={[buttonStyle, { width: 180, color: 'white' }]}>12/02/2022</Text>
+              <Text style={[buttonStyle, { backgroundColor: 'mediumturquoise', borderColor: 'mediumturquoise', width: 250 }]} onPress={() => this.props.navigation.navigate('AddBooking')} >+ADD BOOKING</Text>
+              <Text style={[buttonStyle, { width: 250, color: 'white' }]}>12/02/2022</Text>
             </View>
           </View>
           <View style={{marginTop: 20, flexDirection: 'row'}}>
@@ -73,18 +73,18 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 8,
     padding: 7,
-    width: 250,
+    width: 350,
     height: 40,
     paddingLeft: 20,
     marginHorizontal: 20,
-    marginTop: 10
+    marginTop: 20
   },
   buttonStyle: {
     borderWidth: 1,
     borderColor: 'black',
     backgroundColor: 'black',
     color: 'black',
-    width: 100,
+    width: 180,
     height: 40,
     textAlign: 'center',
     padding: 10,

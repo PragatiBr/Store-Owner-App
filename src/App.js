@@ -37,7 +37,7 @@ const Drawer = createDrawerNavigator();
 const Home = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Drawer.Screen name="Dashboard" component={DashboardScreen} />
+      <Stack.Screen name="Dashboard" component={DashboardScreen} />
       <Stack.Screen name="OrderInvoice" component={OrderInvoice} />
       <Stack.Screen name="Details" component={RestaurantDetail} />
       <Stack.Screen name="Edit" component={EditRestaurant} />
@@ -46,7 +46,7 @@ const Home = () => {
       <Stack.Screen name="TableSetup" component={TableSetupScreen} />
       <Stack.Screen name="AdditionalInfo" component={AdditionalInfo} />
       <Stack.Screen name="AddonCategory" component={AddonCategory}  />
-      <Stack.Screen name="Home" component={StoresScreen} />
+      {/* <Stack.Screen name="Home" component={StoresScreen} /> */}
       <Stack.Screen name="AddCategory" component={AddCategoryScreen} />
       <Stack.Screen name="Addons" component={Addons} />
       <Stack.Screen name="AddAddons" component={AddAddonsScreen} />
@@ -97,7 +97,7 @@ class App extends Component{
             initialRouteName="Feed" 
             screenOptions={{ headerShown: false, drawerStyle: {
               backgroundColor: 'lightsteelblue',
-              width: 200,
+              width: 300,
               overlayColor: 'transparent',
             }, }}
             drawerContent={(props) => <CustomDrawerContentComponent {...props} />}

@@ -41,7 +41,7 @@ export default class AssignTable extends Component {
   render() {
     const { iconStyle, buttonStyle, inputStyle, tableContainer, tableHeader, radioButtonText } = styles;
     return (
-      <ScrollView horizontal>
+      <ScrollView>
         <View>
           <View style={{ flexDirection: 'row' }}>
             <View>
@@ -69,7 +69,7 @@ export default class AssignTable extends Component {
             />
           </View>
           <View style={tableContainer}>
-            <View>
+            <View style={{width: Dimensions.get('window').width /2,}}>
               <Text style={tableHeader}>BOOKING LISTS</Text>
               <RadioButtonRN
                 data={this.data}
@@ -81,7 +81,7 @@ export default class AssignTable extends Component {
               />
             </View>
             <Divider orientation="vertical" width={1} style={{ marginLeft: 20 }} color='black' />
-            <View>
+            <View style={{width: Dimensions.get('window').width /2,}}>
               <Text style={tableHeader}>LIST OF TABLES</Text>
               {this.state.checkOptions.map(opt => (
                 <CheckBox
@@ -113,10 +113,10 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 8,
     padding: 7,
-    width: 200,
+    width: 300,
     height: 30,
     paddingLeft: 20,
-    marginHorizontal: 20,
+    marginHorizontal: 10,
     marginTop: 15
   },
   buttonStyle: {
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     borderColor: 'silver',
     backgroundColor: 'silver',
     color: 'black',
-    width: 100,
+    width: 150,
     height: 30,
     textAlign: 'center',
     padding: 5,
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     flex: 1,
     marginTop: 20,
-    marginHorizontal: 10,
+    marginHorizontal: 8,
     marginBottom: 10,
     height: Dimensions.get('window').height,
   },
@@ -160,5 +160,6 @@ const styles = StyleSheet.create({
   radioButtonText: {
     fontWeight: 'bold',
     paddingLeft: 5,
+    
   }
 });

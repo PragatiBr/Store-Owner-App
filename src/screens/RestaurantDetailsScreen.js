@@ -11,7 +11,7 @@ export default class RestaurantDetail extends Component{
       <View>
         <Icon name="menu" size={35} style={iconStyle} onPress={() => this.props.navigation.openDrawer()} /> 
         <View style={{ marginTop: 50}}>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate('Home')}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('Store')}>
             <Image source={JSON.stringify(image)} style={imageStyle} />
           </TouchableOpacity>
           <Text style={headingStyle}>Restaurant name</Text>

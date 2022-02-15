@@ -32,14 +32,13 @@ export default class Addons extends Component{
         </View>
         </View>
         <Divider width={3} color='rgba(192,192,192,0.5)' />
-        <ScrollView horizontal >
           <View>
             <View style={containerStyle}>
               <Text style={[textStyle, {width: 150}]}>Name</Text>
               <Text style={[textStyle, {width: 100}]}>Price</Text>
               <Text style={[textStyle, {width: 200}]}>Addons Category</Text>
-              <Text style={[textStyle, {width: 150, paddingLeft:40}]}>Created At</Text>
-              <Text style={{width: 100, paddingLeft:60}}><Ionicons name="chevron-down-circle-outline" size={20} color='black' /></Text>
+              <Text style={[textStyle, {width: 150}]}>Created At</Text>
+              <Ionicons name="chevron-down-circle-outline" size={20} color='black' />
             </View>
             <Divider width={1} color='rgba(192,192,192,0.5)' />
             <View style={containerStyle}>
@@ -47,11 +46,12 @@ export default class Addons extends Component{
               <Text style={{ width: 100}}>20</Text>
               <Text style={{ width: 200}}>Drink</Text>
               <Text style={{ width: 150}}>3:14 10/02/2022</Text>
-              <Icon name="edit" size={25} /><Icon name="delete" size={25} color='red' />
+              <View style={{ flexDirection:'row'}}>
+                <Icon name="edit" size={30} /><Icon name="delete" size={30} color='red' />
+              </View> 
             </View>
             <Divider width={1} color='rgba(192,192,192,0.5)' />
           </View>
-        </ScrollView>
       </View>
     );
   }
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 10,
-    paddingVertical: 15,
+    paddingVertical: 20,
   },
   addButton: {
     backgroundColor: 'blue',
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'silver',
     borderRadius: 15,
     padding: 7,
-    width: 250,
+    width: 400,
     height: 30,
     paddingLeft: 20,
   },

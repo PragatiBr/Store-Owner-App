@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'silver',
     borderRadius: 15,
     padding: 7,
-    width: 250,
+    width: 400,
     height: 30,
     paddingLeft: 20,
   },

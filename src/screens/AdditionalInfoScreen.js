@@ -87,11 +87,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     height: 60,
     alignItems: 'center',
-    paddingHorizontal: 10,
+    paddingHorizontal: 20,
   },
   textStyle: {
     color: 'black',
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: '600',
   },
   buttonStyle: {
@@ -109,24 +109,24 @@ const styles = StyleSheet.create({
   formContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginHorizontal: 5,
+    marginHorizontal: 20,
     marginVertical: 8,
     alignItems: 'center',
   },
   labelStyle: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 'bold',
     color: 'black',
   },
   inputStyle: {
-    width: 210,
+    width: 300,
     height: 40,
     borderWidth: 1,
     borderColor: 'black',
     padding: 5,
   },
   dropdown1BtnStyle: {
-    width: 210,
+    width: 300,
     height: 40,
     backgroundColor: "#FFF",
     borderWidth: 1,

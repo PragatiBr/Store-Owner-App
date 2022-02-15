@@ -202,7 +202,7 @@ export default class AddItem extends Component {
 const styles = StyleSheet.create({
   containerStyle: {
     marginVertical: 10,
-    marginHorizontal: 5,
+    marginHorizontal: 20,
     backgroundColor: 'white',
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -217,16 +217,17 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     height: 35,
     padding: 5,
-    width: 205,
+    width: 350,
     borderRadius: 5,
     borderColor: 'silver',
   },
   labelStyle: {
     color: 'black',
-    marginTop: 5
+    marginTop: 5,
+    fontSize: 15,
   },
   dropdown1BtnStyle: {
-    width: 205,
+    width: 350,
     height: 40,
     backgroundColor: "#FFF",
     borderWidth: 1,

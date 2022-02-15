@@ -6,28 +6,15 @@ export default class TableSetupScreen extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      isComponentVisible: 'false',
+      isVisibleList: false,
       data: [
         {
           id: 1,
           name: 'Table Number',
           seats: 'No.of Seats',
-        },
-        {
-          id: 2,
-          name: 'Table Number',
-          seats: 'No.of Seats',
         }
       ]
     }
-  }
-
-  renderList = () => {
-    return <FlatList
-      data={this.state.data}
-      keyExtractor={item => item.id}
-      renderItem={(itemData) => this.renderTableComponent(itemData)}
-    />;
   }
 
   deleteItemById = id => {
@@ -36,13 +23,14 @@ export default class TableSetupScreen extends Component {
   }
 
   renderTableComponent = (itemData) => {
+    console.log('component render');
     return (
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginLeft: 10, marginRight: 70, marginTop: 10 }}>
+      <View style={{ flexDirection: 'row', marginLeft: 20, marginRight: 70, marginTop: 10 }}>
         <View>
           <Text style={styles.tableTextStyle}>{itemData.item.name}*</Text>
           <TextInput style={styles.inputStyle} />
         </View>
-        <View style={{ paddingLeft: 20 }}>
+        <View>
           <Text style={styles.tableTextStyle}>{itemData.item.seats}*</Text>
           <TextInput style={styles.inputStyle} />
         </View>
@@ -64,10 +52,18 @@ export default class TableSetupScreen extends Component {
       <View style={{ backgroundColor: 'white', flex: 1 }}>
         <View style={containerStyle}>
           <Text style={textStyle}>TABLE SETUP</Text>
-          <Text style={buttonStyle} onPress={() => this.props.navigation.navigate('TableShift')} >UPDATE</Text>
+          <Text style={buttonStyle} onPress={() => this.props.navigation.push('TableShift')} >UPDATE</Text>
         </View>
-        <Text style={{ color: 'black', marginLeft: 10, }}>Add New Table</Text>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginLeft: 10, marginRight: 70, marginTop: 10 }}>
+        <Text style={{ color: 'black', marginLeft: 10, fontSize: 15 }}>Add New Table</Text>
+        <View style={addButton}>
+          <Icon
+            color={'white'}
+            name="add"
+            size={30}
+            onPress={() => this.setState({ isVisibleList : true })}
+          />
+        </View>
+        <View style={{ flexDirection: 'row', marginTop: 10, marginLeft:20, }}>
           <View>
             <Text style={tableTextStyle}>Table Number*</Text>
             <TextInput style={inputStyle} />
@@ -77,19 +73,14 @@ export default class TableSetupScreen extends Component {
             <TextInput style={inputStyle} />
           </View>
         </View>
-        {/* <FlatList 
+        {this.state.isVisibleList 
+        ? <FlatList 
           data={this.state.data}
           keyExtractor={item => item.id}
-          renderItem={(itemData) => this.renderTableComponent(itemData)}
-        /> */}
-        <View style={addButton}>
-          <Icon
-            color={'white'}
-            name="add"
-            size={30}
-            onPress={() => this.renderList()}
-          />
-        </View>
+          renderItem={(itemData) => 
+            this.renderTableComponent(itemData)}
+          /> 
+        : null }
       </View>
     );
   }
@@ -123,15 +114,17 @@ const styles = StyleSheet.create({
   },
   inputStyle: {
     borderWidth: 1,
-    width: 130,
+    width: 150,
     height: 30,
     padding: 5,
+    marginRight: 20,
   },
   tableTextStyle: {
     textAlign: 'center',
     color: 'black',
     fontWeight: 'bold',
-    marginBottom: 5,
+    marginBottom: 10,
+    fontSize: 15,
   },
   addButton: {
     backgroundColor: 'blue',
@@ -141,12 +134,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginLeft: 10,
     padding: 5,
+    marginTop: 10,
   },
   clearButton: {
     backgroundColor: 'red',
     width: 20,
     height: 20,
-    marginTop: 25,
+    marginTop: 30,
     borderRadius: 40 / 2,
     alignItems: 'center',
     marginLeft: 10,

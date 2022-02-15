@@ -50,29 +50,15 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     height: 35,
     padding:5,
-    width: 205,
+    width: 400,
     borderRadius:5,
     borderColor:'silver',
   },
   labelStyle:{
     color:'black',
-    marginTop:5
+    marginTop:5,
+    fontSize: 15,
   },
-  dropdown1BtnStyle: {
-    width: 205,
-    height: 40,
-    backgroundColor: "#FFF",
-    borderWidth: 1,
-    borderRadius:5,
-    borderColor:'silver',
-  },
-  dropdown1BtnTxtStyle: { color:'grey', textAlign: "left", fontSize:15 },
-  dropdown1DropdownStyle: { backgroundColor: "#EFEFEF" },
-  dropdown1RowStyle: {
-    backgroundColor: "#EFEFEF",
-    //borderBottomColor: "#C5C5C5",
-  },
-  dropdown1RowTxtStyle: { color: "#444", textAlign: "left", fontSize:15 },
   buttonStyle:{
     backgroundColor:'slateblue',
     color:'white',

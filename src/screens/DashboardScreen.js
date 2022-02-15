@@ -29,7 +29,7 @@ export default class DashboardScreen extends Component {
         </View>
         <Icon name="menu" size={30} style={iconStyle} onPress={() => this.props.navigation.openDrawer()} />
           {/* Left Side Section */}
-          <View style={{ marginTop: 20 }}>
+          <View style={{ marginTop: 50 }}>
             <View style={containerStyle}>
               <Image source={require('../assets/images/shop-store.jpg')} style={imageStyle} />
               <Text style={textStyle}>6</Text>
@@ -47,9 +47,9 @@ export default class DashboardScreen extends Component {
               <Text style={textStyle}>$1500</Text>
             </View>
           </View>
-          <Divider orientation="vertical" width={1} style={{marginLeft: 20}} color='black' height={Dimensions.get('window').height} />
+          <Divider orientation="vertical" width={1} style={{marginLeft: 10}} color='black' height={Dimensions.get('window').height} />
           {/* New Orders Section */}
-          <View style={{ flexDirection:'column' }}>
+          <View style={{ flexDirection:'column', marginLeft: 10 }}>
             <Text style={headingText}>
               NEW ORDERS
             </Text>
@@ -69,19 +69,19 @@ export default class DashboardScreen extends Component {
               <Text style={tableText}>PRICE</Text>
               <Text style={tableText}>STATUS</Text>
             </View>
-            <Divider orientation="horizontal" width={1} color='black' style={{ marginTop: 250}} />
+            <Divider width={1} color='black' style={{ marginTop: 300}} />
             {/* Preparing Order Section */}
             <Text style={headingText}>
               PREPARING ORDERS
             </Text>
             <View style={{ flexDirection: 'row', justifyContent:'space-between', paddingTop: 20 }}>
-              <Text style={tableText} onPress={() => this.props.navigation.navigate('OrderInvoice')}>ORDER ID</Text>
+              <Text style={tableText} onPress={() => this.props.navigation.push('OrderInvoice')}>ORDER ID</Text>
               <Text style={tableText}>PRICE</Text>
               <Text style={tableText}>ORDER PLACED TIME</Text>
               <Text style={tableText}>ORDER ACCEPTED TIME</Text>
             </View>
             <View style={{ flexDirection: 'row', justifyContent:'space-between', paddingTop: 20 }}>
-              <Text style={tableText} onPress={() => this.props.navigation.navigate('OrderInvoice')}>ORDER ID</Text>
+              <Text style={tableText} onPress={() => this.props.navigation.push('OrderInvoice')}>ORDER ID</Text>
               <Text style={tableText}>PRICE</Text>
               <Text style={tableText}>ORDER PLACED TIME</Text>
               <Text style={tableText}>ORDER ACCEPTED TIME</Text>
@@ -102,6 +102,7 @@ const styles = StyleSheet.create({
   iconStyle: {
     backgroundColor: 'black',
     color: 'white',
+    width: 40,
     height: 35,
     marginTop: 45,
     padding: 5
@@ -112,12 +113,11 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-end',
   },
   containerStyle: {
-    width: 150,
+    width: 180,
     height: 110,
     backgroundColor: 'silver',
     flexDirection: 'row',
     marginTop: 40,
-    marginLeft: 20,
     justifyContent: 'space-between'
   },
   textStyle: {
@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
     fontSize: 25, 
     color: 'black', 
     fontWeight: 'bold', 
-    alignItems: 'center', 
+    alignSelf: 'center', 
     paddingHorizontal: 200
   },
   tableText:{
@@ -146,11 +146,11 @@ const styles = StyleSheet.create({
     width: 20 * 2,
     height: 20,
     backgroundColor: 'red',
-    marginLeft: -52,
+    marginLeft: -50,
   },
   greenRectangle:{
     width: 20 * 2,
     height: 20,
     backgroundColor: 'green',
-  }
+  },
 });

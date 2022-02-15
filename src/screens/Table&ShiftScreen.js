@@ -18,7 +18,7 @@ export default class TableShiftScreen extends Component{
         <View style={styles.buttonStyle}>
           <TouchableOpacity onPress={() => this.props.navigation.navigate('Store')}>
             <Icon name="back" size={20} color="black" style={{ alignSelf: 'center' }} />
-            <Text onPress={() => this.props.navigation.navigate('Home')} style={styles.buttonTextStyle}>Back</Text>
+            <Text onPress={() => this.props.navigation.pop(1)} style={styles.buttonTextStyle}>Back</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -29,7 +29,7 @@ export default class TableShiftScreen extends Component{
 const styles = StyleSheet.create({
   containerStyle: {
     backgroundColor: 'lightsteelblue',
-    width: 250,
+    width: 350,
     height: 40,
     marginTop: 5,
     marginLeft: 10,

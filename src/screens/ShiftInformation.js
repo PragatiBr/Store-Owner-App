@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TextInput } from 'react-native';
+import { View, Text, StyleSheet, TextInput, ScrollView } from 'react-native';
 import { Divider } from "react-native-elements";
 
 export default class ShiftInformation extends Component {
@@ -23,7 +23,8 @@ export default class ShiftInformation extends Component {
       inputStyle 
     } = styles;
     return(
-      <View style={{ backgroundColor: 'white', flex: 1 }}>
+      <ScrollView>
+        <View style={{ backgroundColor: 'white', flex: 1 }}>
         <View style={containerStyle}>
           <Text style={textStyle}>SHIFT INFORMATION</Text>
           <Text style={buttonStyle} onPress={() => this.props.navigation.navigate('TableShift')} >UPDATE</Text>
@@ -31,14 +32,14 @@ export default class ShiftInformation extends Component {
         <Divider width={5} color='rgba(192, 192, 192, 0.5)' />
         {/* Breakfast Section */}
         <View style={shiftContainer}>
-          <Text style={{ color: 'black', paddingLeft: 10 }}>Breakfast*</Text>
+          <Text style={{ color: 'black', paddingLeft: 10, fontSize: 20 }}>Breakfast*</Text>
           <View style={headingContainer}>
             <Text style={headingTextStyle}>Start Time:</Text>
             <Text style={headingTextStyle}>  End Time:</Text>
             <Text style={headingTextStyle}>Standard Duration:</Text>
             <Text style={headingTextStyle}>Max Cover:</Text>
           </View>
-          <View style={{flexDirection: 'row', justifyContent:'space-between', marginTop: 5}}>
+          <View style={{flexDirection: 'row', justifyContent:'space-between', marginTop: 5,}}>
             <TextInput
               value={this.state.start}
               onChangeText={(start) => this.setState(start)} 
@@ -64,10 +65,10 @@ export default class ShiftInformation extends Component {
         <Divider width={5} color='rgba(192, 192, 192, 0.5)' />
         {/* Lunch Section */}
         <View style={shiftContainer}>
-          <Text style={{ color: 'black', paddingLeft: 10 }}>Lunch*</Text>
+          <Text style={{ color: 'black', paddingLeft: 10, fontSize: 20 }}>Lunch*</Text>
           <View style={headingContainer}>
             <Text style={headingTextStyle}>Start Time:</Text>
-            <Text style={headingTextStyle}>  End Time:</Text>
+            <Text style={headingTextStyle}>End Time:</Text>
             <Text style={headingTextStyle}>Standard Duration:</Text>
             <Text style={headingTextStyle}>Max Cover:</Text>
           </View>
@@ -97,7 +98,7 @@ export default class ShiftInformation extends Component {
         <Divider width={5} color='rgba(192, 192, 192, 0.5)' />
         {/* Dinner Section */}
         <View style={shiftContainer}>
-          <Text style={{ color: 'black', paddingLeft: 10 }}>Dinner*</Text>
+          <Text style={{ color: 'black', paddingLeft: 10, fontSize: 20 }}>Dinner*</Text>
           <View style={headingContainer}>
             <Text style={headingTextStyle}>Start Time:</Text>
             <Text style={headingTextStyle}>End Time:</Text>
@@ -128,6 +129,8 @@ export default class ShiftInformation extends Component {
           </View>
         </View>
       </View>
+      </ScrollView>
+      
     );
   }
 }
@@ -160,9 +163,9 @@ const styles = StyleSheet.create({
   },
   shiftContainer: {
     backgroundColor: 'white',
-    height: 130,
-    paddingHorizontal: 5,
+    height: 150,
     marginTop: 5,
+    marginHorizontal:20,
   },
   headingContainer:{
     flexDirection: 'row',
@@ -173,12 +176,12 @@ const styles = StyleSheet.create({
     color: 'black',
     fontWeight:'bold',
     textAlign:'center',
+    fontSize: 18,
   },
   inputStyle:{
     backgroundColor: 'rgba(192, 192, 192, 0.5)',
-    width: 70,
-    height: 35,
+    width: 100,
+    height: 40,
     padding: 5,
-    alignSelf: 'center',
   }
 });

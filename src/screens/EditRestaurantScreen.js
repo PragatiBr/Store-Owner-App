@@ -46,14 +46,15 @@ export default class EditRestaurant extends Component {
             <TextInput
               value={this.state.image}
               onChangeText={(image) => this.setState({ image })}
-              style={{ 
-                borderWidth: 1, 
-                width: 150, 
-                height: 25, 
-                borderColor: 'black', 
-                marginLeft: Dimensions.get('window').width - 320, 
-                padding: 5, 
-              }}
+              // style={{ 
+              //   borderWidth: 1, 
+              //   width: 150, 
+              //   height: 25, 
+              //   borderColor: 'black', 
+              //   marginLeft: Dimensions.get('window').width - 320, 
+              //   padding: 5, 
+              // }}
+              style={inputStyle}
             />
           </View>
           <View style={containerStyle}>
@@ -77,14 +78,15 @@ export default class EditRestaurant extends Component {
             <TextInput
               value={this.state.address}
               onChangeText={(address) => this.setState({ address })}
-              style={{ 
-                borderWidth: 1, 
-                width: 200, 
-                height: 25, 
-                borderColor: 'black', 
-                marginLeft: Dimensions.get('window').width - 320, 
-                padding: 5, 
-              }}
+              // style={{ 
+              //   borderWidth: 1, 
+              //   width: 200, 
+              //   height: 25, 
+              //   borderColor: 'black', 
+              //   marginLeft: Dimensions.get('window').width - 320, 
+              //   padding: 5, 
+              // }}
+              style={inputStyle}
             />
           </View>
           <View style={containerStyle}>
@@ -92,14 +94,15 @@ export default class EditRestaurant extends Component {
             <TextInput
               value={this.state.pincode}
               onChangeText={(pincode) => this.setState({ pincode })}
-              style={{ 
-                borderWidth: 1, 
-                width: 210, 
-                height: 25, 
-                borderColor: 'black', 
-                marginLeft: Dimensions.get('window').width - 300, 
-                padding: 5, 
-              }}
+              // style={{ 
+              //   borderWidth: 1, 
+              //   width: 210, 
+              //   height: 25, 
+              //   borderColor: 'black', 
+              //   marginLeft: Dimensions.get('window').width - 300, 
+              //   padding: 5, 
+              // }}
+              style={inputStyle}
             />
           </View>
           <View style={containerStyle}>
@@ -107,21 +110,21 @@ export default class EditRestaurant extends Component {
             <TextInput
               value={this.state.landmark}
               onChangeText={(landmark) => this.setState({ landmark })}
-              style={{ 
-                borderWidth: 1, 
-                width: 210, 
-                height: 25, 
-                borderColor: 'black', 
-                marginLeft: Dimensions.get('window').width - 320, 
-                padding: 5, 
-              }}
+              // style={{ 
+              //   borderWidth: 1, 
+              //   width: 210, 
+              //   height: 25, 
+              //   borderColor: 'black', 
+              //   marginLeft: Dimensions.get('window').width - 320, 
+              //   padding: 5, 
+              // }}
+              style={inputStyle}
             />
           </View>
           <View style={{ 
             flexDirection: 'row', 
             marginHorizontal: 10, 
-            marginTop: 20, 
-            width: Dimensions.get('window').width / 2, 
+            marginTop: 20,  
             justifyContent: 'space-between',  
           }}>
             <Text style={textStyle}>Latitude : </Text>
@@ -130,7 +133,7 @@ export default class EditRestaurant extends Component {
               fontWeight: 'bold',
               color: 'black',
               textAlign: 'center',
-              paddingLeft: 110,
+              marginRight: 310
             }}>
               Longitude : 
             </Text>
@@ -139,30 +142,32 @@ export default class EditRestaurant extends Component {
             flexDirection: 'row',
             marginHorizontal: 5, 
             marginTop: 10,
-            width: Dimensions.get('window').width / 2, 
+            //width: Dimensions.get('window').width / 2, 
             justifyContent: 'space-between', 
           }}>
             <TextInput 
-              style={{ 
-                borderWidth: 1, 
-                width: 150, 
-                height: 25, 
-                borderColor: 'black', 
-                marginRight: Dimensions.get('window').width - 300, 
-                padding: 5, 
-              }}
+              // style={{ 
+              //   borderWidth: 1, 
+              //   width: 150, 
+              //   height: 25, 
+              //   borderColor: 'black', 
+              //   marginRight: Dimensions.get('window').width - 300, 
+              //   padding: 5, 
+              // }}
+              style={inputStyle}
               value={this.state.latitude}
               onChangeText={(latitude) => this.setState({latitude})} 
             />
             <TextInput 
-            style={{ 
-              borderWidth: 1, 
-              width: 170, 
-              height: 25, 
-              borderColor: 'black', 
-              marginLeft: Dimensions.get('window').width - 400, 
-              padding: 5, 
-            }}
+            // style={{ 
+            //   borderWidth: 1, 
+            //   width: 170, 
+            //   height: 25, 
+            //   borderColor: 'black', 
+            //   marginLeft: Dimensions.get('window').width - 400, 
+            //   padding: 5, 
+            // }}
+            style={inputStyle}
             value={this.state.longitude}
             onChangeText={(longitude) => this.setState({longitude})} 
             />
@@ -176,14 +181,15 @@ export default class EditRestaurant extends Component {
             <TextInput
               value={this.state.licenseCode}
               onChangeText={(licenseCode) => this.setState({ licenseCode })}
-              style={{ 
-                borderWidth: 1, 
-                width: 170, 
-                height: 25, 
-                borderColor: 'black', 
-                marginLeft: Dimensions.get('window').width - 350, 
-                padding: 5, 
-              }}
+              style={inputStyle}
+              // style={{ 
+              //   borderWidth: 1, 
+              //   width: 170, 
+              //   height: 25, 
+              //   borderColor: 'black', 
+              //   marginLeft: Dimensions.get('window').width - 350, 
+              //   padding: 5, 
+              // }}
             />
           </View>
           <View style={containerStyle}>
@@ -191,14 +197,15 @@ export default class EditRestaurant extends Component {
             <TextInput
               value={this.state.storeCharge}
               onChangeText={(storeCharge) => this.setState({ storeCharge })}
-              style={{ 
-                borderWidth: 1, 
-                width: 170, 
-                height: 25, 
-                borderColor: 'black', 
-                marginLeft: Dimensions.get('window').width - 340, 
-                padding: 5, 
-              }}
+              style={inputStyle}
+              // style={{ 
+              //   borderWidth: 1, 
+              //   width: 170, 
+              //   height: 25, 
+              //   borderColor: 'black', 
+              //   marginLeft: Dimensions.get('window').width - 340, 
+              //   padding: 5, 
+              // }}
             />
           </View>
           <View style={containerStyle}>
@@ -206,29 +213,22 @@ export default class EditRestaurant extends Component {
             <TextInput
               value={this.state.orderPrice}
               onChangeText={(orderPrice) => this.setState({ orderPrice })}
-              style={{ 
-                borderWidth: 1, 
-                width: 180, 
-                height: 25, 
-                borderColor: 'black', 
-                marginLeft: Dimensions.get('window').width - 300, 
-                padding: 5, 
-              }}
+              style={inputStyle}
             />
           </View>
-          <View style={containerStyle}>
+          <View style={{flexDirection:'row', marginLeft: 10}}>
             <Text style={textStyle}>Is Pure Veg? : </Text>
             <View style={greenRectangle}><Text style={textStyle}>YES</Text></View>
             <View style={redRectangle}><Text style={textStyle}>NO</Text></View>
           </View>
-          <View style={containerStyle}>
+          <View style={{flexDirection:'row', marginLeft: 10}}>
             <Text style={textStyle}>Automatic Scheduling : </Text>
             <View style={greenRectangle}><Text style={textStyle}>ON</Text></View>
             <View style={redRectangle}><Text style={textStyle}>OFF</Text></View>
           </View>
           <View style={{ marginHorizontal: 10, marginHorizontal: 25, flexDirection: 'row', marginVertical:25,  }}>
             <Icon name="power-off" size={38} color='red' style={iconStyle} onPress={() => this.props.navigation.navigate('Store')} />
-            <Text onPress={() => this.props.navigation.navigate('Home')} style={updateButtonstyle}>UPDATE</Text>
+            <Text onPress={() => this.props.navigation.navigate('Store')} style={updateButtonstyle}>UPDATE</Text>
           </View>
       </ScrollView>
     );
@@ -240,19 +240,18 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     marginTop: 20,
     flexDirection: 'row',
-    width: Dimensions.get('window').width / 2,
-    alignItems: 'center'
+    alignItems: 'center',
+    justifyContent:'space-between',
   },
   inputStyle: {
     borderWidth: 1,
-    width: 200,
-    height: 25,
+    width: 400,
+    height: 30,
     borderColor: 'black',
-    marginLeft: Dimensions.get('window').width - 350,
     padding: 5,
   },
   textStyle: {
-    fontSize: 15,
+    fontSize: 18,
     fontWeight: 'bold',
     color: 'black',
     textAlign: 'center'
@@ -266,7 +265,7 @@ const styles = StyleSheet.create({
     width: 20 * 2,
     height: 20,
     backgroundColor: 'lawngreen',
-    marginLeft: Dimensions.get('window').width - 350,
+    marginLeft: 20,
   },
   updateButtonstyle: {
     backgroundColor: 'black',

@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     borderColor: 'silver',
     backgroundColor: 'silver',
     color: 'black',
-    width: 200,
+    width: 300,
     height: 40,
     textAlign: 'center',
     padding: 10,

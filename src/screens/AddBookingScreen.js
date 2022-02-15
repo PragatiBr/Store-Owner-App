@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     height: 35,
     padding: 5,
-    width: 205,
+    width: 350,
     borderRadius: 5,
     borderColor: 'silver',
   },
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
   doneIcon:{
     backgroundColor:'deepskyblue',
     borderRadius: 20,
-    width: 70,
+    width: 80,
     alignSelf: 'flex-end',
     paddingHorizontal: 25,
     paddingVertical:5,
