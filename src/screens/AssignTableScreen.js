@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, ScrollView, TextInput, Dimensions } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import { View, Text, StyleSheet, ScrollView, TextInput, Dimensions, Image } from 'react-native';
 import { Divider } from "react-native-elements";
 import RadioButtonRN from 'radio-buttons-react-native';
 import CheckBox from 'react-native-check-box'
+import SideMenuBar from "../components/SideMenuBar";
 
 export default class AssignTable extends Component {
   constructor(props) {
@@ -39,25 +39,12 @@ export default class AssignTable extends Component {
   }
 
   render() {
-    const { iconStyle, buttonStyle, inputStyle, tableContainer, tableHeader, radioButtonText } = styles;
+    const { buttonStyle, inputStyle, tableContainer, tableHeader, radioButtonText } = styles;
     return (
       <ScrollView>
         <View>
           <View style={{ flexDirection: 'row' }}>
-            <View>
-              <View style={{
-                backgroundColor: 'lightgrey',
-                borderRadius: 50 / 2,
-                width: 55,
-                height: 45,
-                position: 'absolute',
-              }}>
-                <Text style={{
-                  color: 'black', fontSize: 20, fontWeight: 'bold', textAlign: 'center', paddingVertical: 8
-                }}>Logo</Text>
-              </View>
-              <Icon name="menu" size={30} style={iconStyle} onPress={() => this.props.navigation.openDrawer()} />
-            </View>
+            <SideMenuBar onPress={this.props.navigation} />
             <Text style={buttonStyle} onPress={() => this.props.navigation.navigate('Filter')} >VENUE</Text>
             <Text style={buttonStyle} onPress={() => this.props.navigation.navigate('Filter')} >DATE</Text>
             <Text style={buttonStyle} onPress={() => this.props.navigation.navigate('Filter')} >TYPE</Text>
@@ -132,13 +119,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginLeft: 30,
     marginTop: 15,
-  },
-  iconStyle: {
-    backgroundColor: 'black',
-    color: 'white',
-    height: 35,
-    marginTop: 45,
-    padding: 5
   },
   tableContainer: {
     flexDirection: 'row',

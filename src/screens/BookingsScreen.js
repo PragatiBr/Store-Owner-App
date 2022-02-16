@@ -1,32 +1,20 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, TextInput, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, TextInput, ScrollView, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import ActionIcon from 'react-native-vector-icons/Ionicons';
+import SideMenuBar from "../components/SideMenuBar";
 
 export default class BookingsScreen extends Component {
   state = {
     search: '',
   }
   render() {
-    const { iconStyle, inputStyle, buttonStyle, tableHeader, tableCell, actionIconStyle } = styles;
+    const { inputStyle, buttonStyle, tableHeader, tableCell, actionIconStyle } = styles;
     return (
       <ScrollView horizontal>
         <View>
           <View style={{ flexDirection: 'row' }}>
-            <View>
-              <View style={{
-                backgroundColor: 'lightgrey',
-                borderRadius: 50 / 2,
-                width: 55,
-                height: 45,
-                position: 'absolute',
-              }}>
-                <Text style={{
-                  color: 'black', fontSize: 20, fontWeight: 'bold', textAlign: 'center', paddingVertical: 8
-                }}>Logo</Text>
-              </View>
-              <Icon name="menu" size={30} style={iconStyle} onPress={() => this.props.navigation.openDrawer()} />
-            </View>
+            <SideMenuBar onPress={this.props.navigation} />
             <TextInput
               value={this.state.search}
               placeholder="Search Customer Name"
@@ -92,13 +80,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginHorizontal: 10,
     marginTop: 10
-  },
-  iconStyle: {
-    backgroundColor: 'black',
-    color: 'white',
-    height: 35,
-    marginTop: 45,
-    padding: 5
   },
   tableHeader: {
     backgroundColor: 'silver',

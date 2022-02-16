@@ -1,26 +1,15 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import { View, Text, StyleSheet, Image } from 'react-native';
+import SideMenuBar from "../components/SideMenuBar";
 
 export default class EarningsScreen extends Component {
   render() {
-    const { iconStyle, headerContainerStyle, textStyle, bodyContainer, bodyText, tableContainer } = styles;
+    const { headerContainerStyle, textStyle, bodyContainer, bodyText, tableContainer } = styles;
     return (
       <View>
         <View style={{ flexDirection: 'row' }}>
           <View>
-            <View style={{
-              backgroundColor: 'lightgrey',
-              borderRadius: 50 / 2,
-              width: 55,
-              height: 45,
-              position: 'absolute',
-            }}>
-              <Text style={{
-                color: 'black', fontSize: 20, fontWeight: 'bold', textAlign: 'center', paddingVertical: 8
-              }}>Logo</Text>
-            </View>
-            <Icon name="menu" size={30} style={iconStyle} onPress={() => this.props.navigation.openDrawer()} />
+            <SideMenuBar onPress={this.props.navigation} />
           </View>
           <View style={headerContainerStyle}>
             <Text style={textStyle}>NET EARNINGS</Text>
@@ -55,15 +44,7 @@ export default class EarningsScreen extends Component {
     );
   }
 }
-
 const styles = StyleSheet.create({
-  iconStyle: {
-    backgroundColor: 'black',
-    color: 'white',
-    height: 35,
-    marginTop: 45,
-    padding: 5
-  },
   headerContainerStyle:{
     backgroundColor:'silver',
     height: 120,

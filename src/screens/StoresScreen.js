@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, ImageBackground, FlatList, ScrollView, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import { View, Text, StyleSheet, ImageBackground, FlatList, TouchableOpacity } from 'react-native';
 import DotIcon from 'react-native-vector-icons/Octicons';
+import SideMenuBar from "../components/SideMenuBar";
 
 export default class StoresScreen extends Component {
   constructor(props) {
@@ -34,43 +34,31 @@ export default class StoresScreen extends Component {
 
   renderComponent = (itemData) => {
     return (
-        <View style={styles.containerStyle}>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate('Details', { image: itemData.item.image })}>
-            <ImageBackground source={itemData.item.image} style={styles.imageStyle}>
-              <DotIcon name="primitive-dot" size={35} color="green" style={styles.dotIconStyle} />
-            </ImageBackground>
-          </TouchableOpacity>
-          <Text onPress={() => this.props.navigation.navigate('Edit')} style={styles.textStyle}>EDIT</Text>
-          <Text onPress={() => this.props.navigation.navigate('TableShift')} style={styles.tableShiftStyle}>TABLE & SHIFTS</Text>
-          <Text style={styles.textStyle}>SETTINGS</Text>
-        </View>    
+      <View style={styles.containerStyle}>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('Details', { image: itemData.item.image })}>
+          <ImageBackground source={itemData.item.image} style={styles.imageStyle}>
+            <DotIcon name="primitive-dot" size={35} color="green" style={styles.dotIconStyle} />
+          </ImageBackground>
+        </TouchableOpacity>
+        <Text onPress={() => this.props.navigation.navigate('Edit')} style={styles.textStyle}>EDIT</Text>
+        <Text onPress={() => this.props.navigation.navigate('TableShift')} style={styles.tableShiftStyle}>TABLE & SHIFTS</Text>
+        <Text style={styles.textStyle}>SETTINGS</Text>
+      </View>
     );
   }
 
   render() {
-    const { iconStyle } = styles;
     return (
-      <ScrollView horizontal>
-        <View style={{
-          backgroundColor: 'lightgrey',
-          borderRadius: 50 / 2,
-          width: 55,
-          height: 45,
-          position: 'absolute',
-        }}>
-          <Text style={{
-            color: 'black', fontSize: 20, fontWeight: 'bold', textAlign: 'center', paddingVertical: 8
-          }}>Logo</Text>
-        </View>
-        <Icon name="menu" size={30} style={iconStyle} onPress={() => this.props.navigation.openDrawer()} />
+      <View>
+        <SideMenuBar onPress={this.props.navigation} />
         <View style={{ marginTop: 40 }}>
-          <FlatList 
+          <FlatList
             data={this.state.data}
             keyExtractor={item => item.id}
             renderItem={item => this.renderComponent(item)}
           />
         </View>
-      </ScrollView>
+      </View>
     );
   }
 }
@@ -82,19 +70,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     height: 150,
   },
-  iconStyle: {
-    backgroundColor: 'black',
-    color: 'white',
-    height: 35,
-    marginTop: 45,
-    padding: 5
-  },
   imageStyle: {
     width: 100,
     height: 100,
   },
   dotIconStyle: {
-    //margin: 5,
     right: 5,
     top: -5,
     position: 'absolute',
@@ -129,5 +109,5 @@ const styles = StyleSheet.create({
     padding: 10,
     borderColor: 'lightsteelblue',
     fontWeight: 'bold',
-  }
+  },
 });

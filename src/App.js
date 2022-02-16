@@ -46,7 +46,7 @@ const Home = () => {
       <Stack.Screen name="TableSetup" component={TableSetupScreen} />
       <Stack.Screen name="AdditionalInfo" component={AdditionalInfo} />
       <Stack.Screen name="AddonCategory" component={AddonCategory}  />
-      {/* <Stack.Screen name="Home" component={StoresScreen} /> */}
+      <Stack.Screen name="Home" component={StoresScreen} />
       <Stack.Screen name="AddCategory" component={AddCategoryScreen} />
       <Stack.Screen name="Addons" component={Addons} />
       <Stack.Screen name="AddAddons" component={AddAddonsScreen} />
@@ -66,7 +66,7 @@ const CustomDrawerContentComponent = (props) => {
         <View style={styles.drawerHeader}>
         <Image
           style={styles.drawerImage}
-          source={{ uri:('https://reactnative.dev/img/tiny_logo.png')}} 
+          source={require('./assets/images/app_logo.jpeg')} 
         />
         <Text style={styles.textStyle}>User Logo</Text>
         </View>
@@ -118,25 +118,24 @@ class App extends Component{
 
 const styles = StyleSheet.create({
   drawerHeader: {
-    height: 80,
+    height: 100,
     backgroundColor: 'black',
     flexDirection: 'row',
     justifyContent:'space-between',
     marginTop: -5,
   },
   drawerImage: {
-    height: 50,
-    width: 50,
+    height: 100,
+    width: 100,
     borderRadius: 100/2,
     backgroundColor:'silver',
-    margin: 20,
   },
   textStyle:{
     backgroundColor: 'silver',
     color:'black',
-    width: 80,
+    width: 100,
     textAlign:'center',
-    alignContent:'center',
+   //alignSelf:'center',
   },
 });
 

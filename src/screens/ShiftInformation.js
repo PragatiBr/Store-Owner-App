@@ -27,7 +27,7 @@ export default class ShiftInformation extends Component {
         <View style={{ backgroundColor: 'white', flex: 1 }}>
         <View style={containerStyle}>
           <Text style={textStyle}>SHIFT INFORMATION</Text>
-          <Text style={buttonStyle} onPress={() => this.props.navigation.navigate('TableShift')} >UPDATE</Text>
+          <Text style={buttonStyle} onPress={() => this.props.navigation.goBack('TableShift')} >UPDATE</Text>
         </View>
         <Divider width={5} color='rgba(192, 192, 192, 0.5)' />
         {/* Breakfast Section */}

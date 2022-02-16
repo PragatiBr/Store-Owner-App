@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import SideMenuBar from "../components/SideMenuBar";
 
 export default class RestaurantDetail extends Component{
   render(){
     const {image}  = this.props.route.params; 
-    const { iconStyle, imageStyle, textStyle, headingStyle } = styles;
+    const {imageStyle, textStyle, headingStyle } = styles;
     
     return(
       <View>
-        <Icon name="menu" size={35} style={iconStyle} onPress={() => this.props.navigation.openDrawer()} /> 
+        <SideMenuBar onPress={this.props.navigation} />
         <View style={{ marginTop: 50}}>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate('Store')}>
+          <TouchableOpacity onPress={() => this.props.navigation.goBack('Home')}>
             <Image source={JSON.stringify(image)} style={imageStyle} />
           </TouchableOpacity>
           <Text style={headingStyle}>Restaurant name</Text>
@@ -25,11 +25,6 @@ export default class RestaurantDetail extends Component{
 }
 
 const styles = StyleSheet.create({
-  iconStyle:{
-    position: 'absolute',
-    backgroundColor: 'black',
-    color: 'white',
-  },
   imageStyle:{
     width: 200,
     height: 200,
@@ -43,9 +38,9 @@ const styles = StyleSheet.create({
     color: 'black',
   },
   textStyle:{
-    marginLeft: 40,
+    marginHorizontal: 300,
     fontWeight: 'bold',
-    fontSize: 20,
+    fontSize: 25,
     color: 'black',
     marginTop:10,
   },

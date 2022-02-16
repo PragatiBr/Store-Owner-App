@@ -20,7 +20,7 @@ export default class AdditionalInfo extends Component {
       <View style={{ backgroundColor: 'white', flex: 1 }}>
         <View style={containerStyle}>
           <Text style={textStyle}>ADDITIONAL INFORMATION</Text>
-          <Text style={buttonStyle} onPress={() => this.props.navigation.navigate('TableShift')} >UPDATE</Text>
+          <Text style={buttonStyle} onPress={() => this.props.navigation.goBack('TableShift')} >UPDATE</Text>
         </View>
         <View style={formContainer}>
           <Text style={labelStyle}>*Max No of Pax: </Text>

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, ScrollView, TextInput } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import { Divider } from "react-native-elements";
+import SideMenuBar from "../components/SideMenuBar";
 
 export default class OrdersScreen extends Component {
   constructor(props) {
@@ -12,25 +12,12 @@ export default class OrdersScreen extends Component {
     }
   }
   render() {
-    const { tableHeader, viewButton, tableCell, inputStyle, iconStyle } = styles;
+    const { tableHeader, viewButton, tableCell, inputStyle } = styles;
     return (
       <ScrollView>
         <View>
           <View style={{ flexDirection: 'row' }}>
-            <View>
-              <View style={{
-                backgroundColor: 'lightgrey',
-                borderRadius: 50 / 2,
-                width: 55,
-                height: 45,
-                position: 'absolute',
-              }}>
-                <Text style={{
-                  color: 'black', fontSize: 20, fontWeight: 'bold', textAlign: 'center', paddingVertical: 8
-                }}>Logo</Text>
-              </View>
-              <Icon name="menu" size={30} style={iconStyle} onPress={() => this.props.navigation.openDrawer()} />
-            </View>
+            <SideMenuBar onPress={this.props.navigation} />
             <TextInput
               value={this.state.search}
               placeholder="Search Order Id"
@@ -99,12 +86,5 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     marginHorizontal: 30,
     marginTop: 15
-  },
-  iconStyle: {
-    backgroundColor: 'black',
-    color: 'white',
-    height: 35,
-    marginTop: 45,
-    padding: 5
   },
 });

@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 import { Text, View, StyleSheet, Image, TextInput, ImageBackground, Dimensions } from 'react-native';
-import { Button } from '../components/common/Button';
+import { Button } from '../components/Button';
 
 export default class RegisterScreen extends Component {
   state = { name: '', phone: '', email: '', password: '' }
 
   renderButton() {
-    // if (this.state.loading) {
-    //   return <Spinner size="small" />;
-    // }
     return (
       <Button>
         CREATE ACCOUNT

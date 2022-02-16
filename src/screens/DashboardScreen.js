@@ -1,112 +1,138 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, Image, ScrollView, Dimensions } from 'react-native'
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import { View, Text, StyleSheet, Image, Dimensions, FlatList } from 'react-native'
 import { Divider } from "react-native-elements";
+import SideMenuBar from "../components/SideMenuBar";
 
 export default class DashboardScreen extends Component {
-  render() {
-    const { 
-      iconStyle, 
-      imageStyle, 
-      containerStyle, 
-      textStyle, 
-      headingText, 
-      tableText, 
-      redRectangle,
-      greenRectangle, 
-    } = styles;
+  constructor(props) {
+    super(props)
+    this.state = {
+      prepareOrderData: [
+        {
+          id: 1,
+          orderId: 'OD-356-GHZ',
+          price: '$40',
+          placedTime: '3:40',
+          acceptedTime: '3:41'
+        },
+        {
+          id: 2,
+          orderId: 'OD-854-DGH',
+          price: '$30',
+          placedTime: '6:40',
+          acceptedTime: '6:41'
+        },
+        {
+          id: 3,
+          orderId: 'OD-741-SDF',
+          price: '$35',
+          placedTime: '2:40',
+          acceptedTime: '2:41'
+        },
+      ],
+      leftSideData: [
+        {
+          id: 1,
+          image: require('../assets/images/shop-store.jpg'),
+          count: '6',
+        },
+        {
+          id: 2,
+          image: require('../assets/images/shopping-cart.jpg'),
+          count: '3',
+        },
+        {
+          id: 3,
+          image: require('../assets/images/sold-icon.jpg'),
+          count: '18',
+        },
+        {
+          id: 4,
+          image: require('../assets/images/earning.jpg'),
+          count: '$1500',
+        },
+      ]
+    }
+  }
+
+  renderData = (itemData) => {
     return (
-      <ScrollView horizontal width={Dimensions.get('window').width}>
-        <View style={{
-          backgroundColor: 'lightgrey',
-          borderRadius: 50/2,
-          width: 55,
-          height: 45,
-          position: 'absolute',
-        }}>
-          <Text style={{ color: 'black', fontSize: 20, fontWeight: 'bold', textAlign: 'center', paddingVertical: 8 
-          }}>Logo</Text>
+      <View style={styles.containerStyle}>
+        <Image source={itemData.item.image} style={styles.imageStyle} />
+        <Text style={styles.textStyle}>{itemData.item.count}</Text>
+      </View>
+    );
+  }
+
+  renderPrepareOrder = (itemData) => {
+    return (
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingTop: 20 }}>
+        <Text style={styles.tableText} onPress={() => this.props.navigation.push('OrderInvoice')}>{itemData.item.orderId}</Text>
+        <Text style={styles.tableText}>{itemData.item.price}</Text>
+        <Text style={styles.tableText}>{itemData.item.placedTime}</Text>
+        <Text style={styles.tableText}>{itemData.item.acceptedTime}</Text>
+      </View>
+    );
+  }
+
+  render() {
+    const {
+      headingText,
+      tableText,
+      redRectangle,
+      greenRectangle,
+    } = styles;
+
+    return (
+      <View style={{ flexDirection: 'row', height: Dimensions.get('window').height  }}>
+        <SideMenuBar onPress={this.props.navigation} />
+        {/* Left Side Section */}
+        <View style={{ marginTop: 50 }}>
+          <FlatList 
+            data={this.state.leftSideData}
+            keyExtractor={item => item.id}
+            renderItem={itemData => this.renderData(itemData)}
+          />
         </View>
-        <Icon name="menu" size={30} style={iconStyle} onPress={() => this.props.navigation.openDrawer()} />
-          {/* Left Side Section */}
-          <View style={{ marginTop: 50 }}>
-            <View style={containerStyle}>
-              <Image source={require('../assets/images/shop-store.jpg')} style={imageStyle} />
-              <Text style={textStyle}>6</Text>
-            </View>
-            <View style={containerStyle}>
-              <Image source={require('../assets/images/shopping-cart.jpg')} style={imageStyle} />
-              <Text style={textStyle}>3</Text>
-            </View>
-            <View style={containerStyle}>
-              <Image source={require('../assets/images/sold-icon.jpg')} style={imageStyle} />
-              <Text style={textStyle}>18</Text>
-            </View>
-            <View style={containerStyle}>
-              <Image source={require('../assets/images/earning.jpg')} style={imageStyle} />
-              <Text style={textStyle}>$1500</Text>
-            </View>
+        <Divider orientation="vertical" width={2} color='black' style={{ marginLeft: 20, }} />
+        {/* New Orders Section */}
+        <View style={{ marginLeft: 10 }}>
+          <Text style={headingText}>
+            NEW ORDERS
+          </Text>
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingTop: 20 }}>
+            <Text style={tableText}>ORDER ID</Text>
+            <View style={greenRectangle} />
+            <View style={redRectangle} />
+            <Text style={tableText}>RESTAURANT NAME</Text>
+            <Text style={tableText}>PRICE</Text>
+            <Text style={tableText}>STATUS</Text>
           </View>
-          <Divider orientation="vertical" width={1} style={{marginLeft: 10}} color='black' height={Dimensions.get('window').height} />
-          {/* New Orders Section */}
-          <View style={{ flexDirection:'column', marginLeft: 10 }}>
-            <Text style={headingText}>
-              NEW ORDERS
-            </Text>
-            <View style={{ flexDirection: 'row', justifyContent:'space-between', paddingTop: 20 }}>
-              <Text style={tableText}>ORDER ID</Text>
-              <View style={greenRectangle} />
-              <View style={redRectangle} />
-              <Text style={tableText}>RESTAURANT NAME</Text>
-              <Text style={tableText}>PRICE</Text>
-              <Text style={tableText}>STATUS</Text>
-            </View>
-            <View style={{ flexDirection: 'row', justifyContent:'space-between', paddingTop: 20 }}>
-              <Text style={tableText}>ORDER ID</Text>
-              <View style={greenRectangle} />
-              <View style={redRectangle} />
-              <Text style={tableText}>RESTAURANT NAME</Text>
-              <Text style={tableText}>PRICE</Text>
-              <Text style={tableText}>STATUS</Text>
-            </View>
-            <Divider width={1} color='black' style={{ marginTop: 300}} />
-            {/* Preparing Order Section */}
-            <Text style={headingText}>
-              PREPARING ORDERS
-            </Text>
-            <View style={{ flexDirection: 'row', justifyContent:'space-between', paddingTop: 20 }}>
-              <Text style={tableText} onPress={() => this.props.navigation.push('OrderInvoice')}>ORDER ID</Text>
-              <Text style={tableText}>PRICE</Text>
-              <Text style={tableText}>ORDER PLACED TIME</Text>
-              <Text style={tableText}>ORDER ACCEPTED TIME</Text>
-            </View>
-            <View style={{ flexDirection: 'row', justifyContent:'space-between', paddingTop: 20 }}>
-              <Text style={tableText} onPress={() => this.props.navigation.push('OrderInvoice')}>ORDER ID</Text>
-              <Text style={tableText}>PRICE</Text>
-              <Text style={tableText}>ORDER PLACED TIME</Text>
-              <Text style={tableText}>ORDER ACCEPTED TIME</Text>
-            </View>
-            <View style={{ flexDirection: 'row', justifyContent:'space-between', paddingTop: 20 }}>
-              <Text style={tableText} onPress={() => this.props.navigation.navigate('OrderInvoice')}>ORDER ID</Text>
-              <Text style={tableText}>PRICE</Text>
-              <Text style={tableText}>ORDER PLACED TIME</Text>
-              <Text style={tableText}>ORDER ACCEPTED TIME</Text>
-            </View>
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingTop: 20 }}>
+            <Text style={tableText}>ORDER ID</Text>
+            <View style={greenRectangle} />
+            <View style={redRectangle} />
+            <Text style={tableText}>RESTAURANT NAME</Text>
+            <Text style={tableText}>PRICE</Text>
+            <Text style={tableText}>STATUS</Text>
           </View>
-      </ScrollView>
+          <Divider width={1} color='black' style={{ marginTop: 300 }} />
+          {/* Preparing Order Section */}
+          <Text style={headingText}>
+            PREPARING ORDERS
+          </Text>
+          <FlatList
+            data={this.state.prepareOrderData}
+            keyExtractor={item => item.id}
+            renderItem={item => this.renderPrepareOrder(item)}
+          />
+        </View>
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  iconStyle: {
-    backgroundColor: 'black',
-    color: 'white',
-    width: 40,
-    height: 35,
-    marginTop: 45,
-    padding: 5
-  },
   imageStyle: {
     height: 60,
     width: 60,
@@ -130,25 +156,26 @@ const styles = StyleSheet.create({
   separator: {
     marginLeft: 20,
   },
-  headingText:{
-    fontSize: 25, 
-    color: 'black', 
-    fontWeight: 'bold', 
-    alignSelf: 'center', 
-    paddingHorizontal: 200
+  headingText: {
+    fontSize: 25,
+    color: 'black',
+    fontWeight: 'bold',
+    alignSelf: 'center',
+    paddingHorizontal: 200,
+    paddingTop: 10,
   },
-  tableText:{
-    color:'black',
+  tableText: {
+    color: 'black',
     fontSize: 18,
     fontWeight: 'bold',
   },
-  redRectangle:{
+  redRectangle: {
     width: 20 * 2,
     height: 20,
     backgroundColor: 'red',
     marginLeft: -50,
   },
-  greenRectangle:{
+  greenRectangle: {
     width: 20 * 2,
     height: 20,
     backgroundColor: 'green',

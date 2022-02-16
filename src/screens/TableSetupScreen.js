@@ -52,7 +52,7 @@ export default class TableSetupScreen extends Component {
       <View style={{ backgroundColor: 'white', flex: 1 }}>
         <View style={containerStyle}>
           <Text style={textStyle}>TABLE SETUP</Text>
-          <Text style={buttonStyle} onPress={() => this.props.navigation.push('TableShift')} >UPDATE</Text>
+          <Text style={buttonStyle} onPress={() => this.props.navigation.goBack('TableShift')} >UPDATE</Text>
         </View>
         <Text style={{ color: 'black', marginLeft: 10, fontSize: 15 }}>Add New Table</Text>
         <View style={addButton}>

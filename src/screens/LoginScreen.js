@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, TextInput, Image, ImageBackground, Dimensions } from 'react-native';
-import { Button } from '../components/common/Button';
+import { Button } from '../components/Button';
 import DialogInput from 'react-native-dialog-input';
 
 class LoginScreen extends Component {
