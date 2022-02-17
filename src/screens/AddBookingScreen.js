@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, TextInput } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import BackgroundImage from "../components/BackgroundImage";
 
 export default class AddBooking extends Component{
   constructor(props){
@@ -20,6 +21,7 @@ export default class AddBooking extends Component{
   render(){
     return(
       <View style={{ backgroundColor: 'white', flex: 1 }}>
+        <BackgroundImage />
         <View style={styles.containerStyle}>
           <Text style={styles.textStyle}>Add New Booking</Text>
           <Icon name="clear" size={25} onPress={() => this.props.navigation.navigate('Bookings')} />

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, TextInput, Dimensions, ScrollView } from 'react-native';
 import Icon from "react-native-vector-icons/FontAwesome";
+import BackgroundImage from "../components/BackgroundImage";
 
 export default class EditRestaurant extends Component {
 
@@ -23,7 +24,8 @@ export default class EditRestaurant extends Component {
   render() {
     const { containerStyle, inputStyle, textStyle, redRectangle, greenRectangle, updateButtonstyle, iconStyle } = styles;
     return (
-      <ScrollView>
+      <View>
+        <BackgroundImage />
         <View style={containerStyle}>
           <Text style={textStyle}>*Store Name : </Text>
           <TextInput
@@ -164,7 +166,7 @@ export default class EditRestaurant extends Component {
           <Icon name="power-off" size={38} color='red' style={iconStyle} onPress={() => this.props.navigation.goBack('Home')} />
           <Text onPress={() => this.props.navigation.goBack('Home')} style={updateButtonstyle}>UPDATE</Text>
         </View>
-      </ScrollView>
+      </View>
     );
   }
 }

@@ -5,6 +5,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import SelectDropdown from 'react-native-select-dropdown';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import ToggleSwitch from 'toggle-switch-react-native';
+import BackgroundImage from "../components/BackgroundImage";
 
 export default class AddItem extends Component {
   constructor(props) {
@@ -30,7 +31,8 @@ export default class AddItem extends Component {
 
   render() {
     return (
-      <View style={{ backgroundColor: 'white', flex: 1 }}>
+      <View>
+        <BackgroundImage />
         <View style={styles.containerStyle}>
           <Text style={styles.textStyle}>Add New Item</Text>
           <Icon name="clear" size={25} onPress={() => this.props.navigation.navigate('Items')} />
@@ -203,7 +205,7 @@ const styles = StyleSheet.create({
   containerStyle: {
     marginVertical: 10,
     marginHorizontal: 20,
-    backgroundColor: 'white',
+    //backgroundColor: 'white',
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
@@ -219,12 +221,12 @@ const styles = StyleSheet.create({
     padding: 5,
     width: 350,
     borderRadius: 5,
-    borderColor: 'silver',
+    borderColor: 'black',
   },
   labelStyle: {
     color: 'black',
     marginTop: 5,
-    fontSize: 15,
+    fontSize: 20,
   },
   dropdown1BtnStyle: {
     width: 350,

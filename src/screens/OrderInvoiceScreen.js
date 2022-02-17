@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import BackgroundImage from "../components/BackgroundImage";
 
 export default class OrderInvoice extends Component {
   render (){
     const { headerView, iconStyle, textStyle, orderDetailStyle } = styles;
     return (
       <View>
+        <BackgroundImage />
         <View style={headerView}>
           <Text style={textStyle}>Order Id</Text>
           <Text style={{ borderWidth: 1, width: 60, textAlign: 'center', color: 'black', fontWeight: '600', padding: 3, fontSize: 18, marginBottom: 10 }}>Print</Text>

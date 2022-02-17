@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TextInput, FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import BackgroundImage from '../components/BackgroundImage';
 
 export default class TableSetupScreen extends Component {
   constructor(props) {
@@ -49,7 +50,8 @@ export default class TableSetupScreen extends Component {
   render() {
     const { containerStyle, textStyle, buttonStyle, inputStyle, tableTextStyle, addButton } = styles;
     return (
-      <View style={{ backgroundColor: 'white', flex: 1 }}>
+      <View>
+        <BackgroundImage />
         <View style={containerStyle}>
           <Text style={textStyle}>TABLE SETUP</Text>
           <Text style={buttonStyle} onPress={() => this.props.navigation.goBack('TableShift')} >UPDATE</Text>
@@ -88,7 +90,7 @@ export default class TableSetupScreen extends Component {
 
 const styles = StyleSheet.create({
   containerStyle: {
-    backgroundColor: 'white',
+    //backgroundColor: 'white',
     flexDirection: 'row',
     justifyContent: 'space-between',
     height: 60,

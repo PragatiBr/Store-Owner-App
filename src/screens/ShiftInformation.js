@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TextInput, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, TextInput } from 'react-native';
 import { Divider } from "react-native-elements";
+import BackgroundImage from '../components/BackgroundImage';
 
 export default class ShiftInformation extends Component {
-  constructor(props){
+  constructor(props) {
     super(props)
     this.state = {
       start: '',
@@ -12,19 +13,19 @@ export default class ShiftInformation extends Component {
       cover: '',
     }
   }
-  render(){
-    const { 
-      containerStyle, 
-      textStyle, 
-      buttonStyle, 
-      shiftContainer, 
-      headingContainer, 
-      headingTextStyle, 
-      inputStyle 
+  render() {
+    const {
+      containerStyle,
+      textStyle,
+      buttonStyle,
+      shiftContainer,
+      headingContainer,
+      headingTextStyle,
+      inputStyle
     } = styles;
-    return(
-      <ScrollView>
-        <View style={{ backgroundColor: 'white', flex: 1 }}>
+    return (
+      <View>
+        <BackgroundImage />
         <View style={containerStyle}>
           <Text style={textStyle}>SHIFT INFORMATION</Text>
           <Text style={buttonStyle} onPress={() => this.props.navigation.goBack('TableShift')} >UPDATE</Text>
@@ -39,25 +40,25 @@ export default class ShiftInformation extends Component {
             <Text style={headingTextStyle}>Standard Duration:</Text>
             <Text style={headingTextStyle}>Max Cover:</Text>
           </View>
-          <View style={{flexDirection: 'row', justifyContent:'space-between', marginTop: 5,}}>
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 5, }}>
             <TextInput
               value={this.state.start}
-              onChangeText={(start) => this.setState(start)} 
+              onChangeText={(start) => this.setState(start)}
               style={inputStyle}
             />
             <TextInput
               value={this.state.end}
-              onChangeText={(end) => this.setState(end)} 
+              onChangeText={(end) => this.setState(end)}
               style={inputStyle}
             />
             <TextInput
               value={this.state.standard}
-              onChangeText={(standard) => this.setState(standard)} 
+              onChangeText={(standard) => this.setState(standard)}
               style={inputStyle}
             />
             <TextInput
               value={this.state.cover}
-              onChangeText={(cover) => this.setState(cover)} 
+              onChangeText={(cover) => this.setState(cover)}
               style={inputStyle}
             />
           </View>
@@ -72,25 +73,25 @@ export default class ShiftInformation extends Component {
             <Text style={headingTextStyle}>Standard Duration:</Text>
             <Text style={headingTextStyle}>Max Cover:</Text>
           </View>
-          <View style={{flexDirection: 'row', justifyContent:'space-between', marginTop: 5}}>
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 5 }}>
             <TextInput
               value={this.state.start}
-              onChangeText={(start) => this.setState(start)} 
+              onChangeText={(start) => this.setState(start)}
               style={inputStyle}
             />
             <TextInput
               value={this.state.end}
-              onChangeText={(end) => this.setState(end)} 
+              onChangeText={(end) => this.setState(end)}
               style={inputStyle}
             />
             <TextInput
               value={this.state.standard}
-              onChangeText={(standard) => this.setState(standard)} 
+              onChangeText={(standard) => this.setState(standard)}
               style={inputStyle}
             />
             <TextInput
               value={this.state.cover}
-              onChangeText={(cover) => this.setState(cover)} 
+              onChangeText={(cover) => this.setState(cover)}
               style={inputStyle}
             />
           </View>
@@ -105,51 +106,48 @@ export default class ShiftInformation extends Component {
             <Text style={headingTextStyle}>Standard Duration:</Text>
             <Text style={headingTextStyle}>Max Cover:</Text>
           </View>
-          <View style={{flexDirection: 'row', justifyContent:'space-between', marginTop: 5}}>
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 5 }}>
             <TextInput
               value={this.state.start}
-              onChangeText={(start) => this.setState(start)} 
+              onChangeText={(start) => this.setState(start)}
               style={inputStyle}
             />
             <TextInput
               value={this.state.end}
-              onChangeText={(end) => this.setState(end)} 
+              onChangeText={(end) => this.setState(end)}
               style={inputStyle}
             />
             <TextInput
               value={this.state.standard}
-              onChangeText={(standard) => this.setState(standard)} 
+              onChangeText={(standard) => this.setState(standard)}
               style={inputStyle}
             />
             <TextInput
               value={this.state.cover}
-              onChangeText={(cover) => this.setState(cover)} 
+              onChangeText={(cover) => this.setState(cover)}
               style={inputStyle}
             />
           </View>
         </View>
       </View>
-      </ScrollView>
-      
     );
   }
 }
 
 const styles = StyleSheet.create({
-  containerStyle:{
-    backgroundColor: 'white',
+  containerStyle: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     height: 60,
     alignItems: 'center',
     paddingHorizontal: 10,
   },
-  textStyle :{
+  textStyle: {
     color: 'black',
     fontSize: 18,
     fontWeight: '600',
   },
-  buttonStyle:{
+  buttonStyle: {
     borderWidth: 1,
     borderColor: 'black',
     backgroundColor: 'black',
@@ -162,24 +160,23 @@ const styles = StyleSheet.create({
     fontSize: 15,
   },
   shiftContainer: {
-    backgroundColor: 'white',
     height: 150,
     marginTop: 5,
-    marginHorizontal:20,
+    marginHorizontal: 20,
   },
-  headingContainer:{
+  headingContainer: {
     flexDirection: 'row',
-    justifyContent:'space-between',
+    justifyContent: 'space-between',
     marginTop: 20,
   },
-  headingTextStyle:{
+  headingTextStyle: {
     color: 'black',
-    fontWeight:'bold',
-    textAlign:'center',
+    fontWeight: 'bold',
+    textAlign: 'center',
     fontSize: 18,
   },
-  inputStyle:{
-    backgroundColor: 'rgba(192, 192, 192, 0.5)',
+  inputStyle: {
+    backgroundColor: 'rgba(192, 192, 192, 0.6)',
     width: 100,
     height: 40,
     padding: 5,

@@ -45,7 +45,7 @@ const Home = () => {
       <Stack.Screen name="ShiftInfo" component={ShiftInformation} />
       <Stack.Screen name="TableSetup" component={TableSetupScreen} />
       <Stack.Screen name="AdditionalInfo" component={AdditionalInfo} />
-      <Stack.Screen name="AddonCategory" component={AddonCategory}  />
+      <Stack.Screen name="AddonCategory" component={AddonCategory} />
       <Stack.Screen name="Home" component={StoresScreen} />
       <Stack.Screen name="AddCategory" component={AddCategoryScreen} />
       <Stack.Screen name="Addons" component={Addons} />
@@ -63,45 +63,47 @@ const Home = () => {
 const CustomDrawerContentComponent = (props) => {
   return (
     <DrawerContentScrollView>
-        <View style={styles.drawerHeader}>
+      <View style={styles.drawerHeader}>
         <Image
           style={styles.drawerImage}
-          source={require('./assets/images/app_logo.jpeg')} 
+          source={require('./assets/images/app_logo.jpeg')}
         />
         <Text style={styles.textStyle}>User Logo</Text>
-        </View>
-        <DrawerItemList {...props} />
-    </DrawerContentScrollView>   
+      </View>
+      <DrawerItemList {...props} />
+    </DrawerContentScrollView>
   );
 }
 
-class App extends Component{
+class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {isLoggedIn : false};
+    this.state = { isLoggedIn: false };
 
     LogBox.ignoreLogs([
       "[react-native-gesture-handler] Seems like you\'re using an old API with gesture components, check out new Gestures system!",
     ]);
   }
-  render(){
+  render() {
     return (
       <NavigationContainer>
-        {this.state.isLoggedIn 
-        ? <Stack.Navigator screenOptions={{ headerShown: false }} >
+        {this.state.isLoggedIn
+          ? <Stack.Navigator screenOptions={{ headerShown: false }} >
             <Stack.Screen name="Login" component={LoginScreen} />
             <Stack.Screen name="Register" component={RegisterScreen} />
           </Stack.Navigator>
-        : <Drawer.Navigator 
-            initialRouteName="Feed" 
-            screenOptions={{ headerShown: false, drawerStyle: {
-              backgroundColor: 'lightsteelblue',
-              width: 300,
-              overlayColor: 'transparent',
-            }, }}
+          : <Drawer.Navigator
+            initialRouteName="Feed"
+            screenOptions={{
+              headerShown: false, drawerStyle: {
+                backgroundColor: 'lightsteelblue',
+                width: 300,
+                overlayColor: 'transparent',
+              },
+            }}
             drawerContent={(props) => <CustomDrawerContentComponent {...props} />}
-          >
+            >
             <Drawer.Screen name="Feed" component={Home} options={{ drawerLabel: 'DASHBOARD' }} />
             <Drawer.Screen name="Stores" component={StoresScreen} options={{ drawerLabel: 'STORES' }} />
             <Drawer.Screen name="ItemsMenu" component={ItemsMenuScreen} options={{ drawerLabel: 'ITEMS & MENU' }} />
@@ -110,7 +112,8 @@ class App extends Component{
             <Drawer.Screen name="Orders" component={OrdersScreen} options={{ drawerLabel: 'ORDERS' }} />
             <Drawer.Screen name="Earnings" component={EarningsScreen} options={{ drawerLabel: 'EARNINGS' }} />
             <Drawer.Screen name="Settings" component={SettingsScreen} options={{ drawerLabel: 'SETTINGS' }} />
-          </Drawer.Navigator>}
+          </Drawer.Navigator>
+        }
       </NavigationContainer>
     );
   }
@@ -121,21 +124,20 @@ const styles = StyleSheet.create({
     height: 100,
     backgroundColor: 'black',
     flexDirection: 'row',
-    justifyContent:'space-between',
+    justifyContent: 'space-between',
     marginTop: -5,
   },
   drawerImage: {
     height: 100,
     width: 100,
-    borderRadius: 100/2,
-    backgroundColor:'silver',
-  },
-  textStyle:{
+    borderRadius: 100 / 2,
     backgroundColor: 'silver',
-    color:'black',
+  },
+  textStyle: {
+    backgroundColor: 'silver',
+    color: 'black',
     width: 100,
-    textAlign:'center',
-   //alignSelf:'center',
+    textAlign: 'center',
   },
 });
 

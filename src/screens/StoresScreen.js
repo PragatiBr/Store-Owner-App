@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, ImageBackground, FlatList, TouchableOpacity } from 'react-native';
 import DotIcon from 'react-native-vector-icons/Octicons';
+import BackgroundImage from "../components/BackgroundImage";
 import SideMenuBar from "../components/SideMenuBar";
 
 export default class StoresScreen extends Component {
@@ -35,6 +36,7 @@ export default class StoresScreen extends Component {
   renderComponent = (itemData) => {
     return (
       <View style={styles.containerStyle}>
+        
         <TouchableOpacity onPress={() => this.props.navigation.navigate('Details', { image: itemData.item.image })}>
           <ImageBackground source={itemData.item.image} style={styles.imageStyle}>
             <DotIcon name="primitive-dot" size={35} color="green" style={styles.dotIconStyle} />
@@ -50,6 +52,7 @@ export default class StoresScreen extends Component {
   render() {
     return (
       <View>
+        <BackgroundImage />
         <SideMenuBar onPress={this.props.navigation} />
         <View style={{ marginTop: 40 }}>
           <FlatList

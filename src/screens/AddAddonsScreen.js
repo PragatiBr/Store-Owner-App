@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import SelectDropdown from 'react-native-select-dropdown';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import BackgroundImage from "../components/BackgroundImage";
 
 export default class AddAddonsScreen extends Component {
   constructor(props){
@@ -17,7 +18,8 @@ export default class AddAddonsScreen extends Component {
   render(){
     var data = ["Drink", "Pizza", "Pasta", "Momos", "Other Category"];
     return(
-      <View style={{ backgroundColor: 'white', flex :1}}>
+      <View>
+        <BackgroundImage />
         <View style={styles.containerStyle}>
           <Text style={styles.textStyle}>Add New Addon</Text>
           <Icon name="clear" size={25} onPress={() => this.props.navigation.navigate('Addons')} />
@@ -79,7 +81,7 @@ const styles = StyleSheet.create({
   containerStyle:{
     marginVertical: 10,
     marginHorizontal:20,
-    backgroundColor: 'white',
+    //backgroundColor: 'white',
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
@@ -95,7 +97,7 @@ const styles = StyleSheet.create({
     padding:5,
     width: 400,
     borderRadius:5,
-    borderColor:'silver',
+    borderColor:'black',
   },
   labelStyle:{
     color:'black',
@@ -105,7 +107,7 @@ const styles = StyleSheet.create({
   dropdown1BtnStyle: {
     width: 400,
     height: 40,
-    backgroundColor: "#FFF",
+    //backgroundColor: "#FFF",
     borderWidth: 1,
     borderRadius:5,
     borderColor:'silver',

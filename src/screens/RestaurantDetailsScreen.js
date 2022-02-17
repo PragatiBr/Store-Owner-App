@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import BackgroundImage from "../components/BackgroundImage";
 import SideMenuBar from "../components/SideMenuBar";
 
 export default class RestaurantDetail extends Component{
@@ -9,9 +10,10 @@ export default class RestaurantDetail extends Component{
     
     return(
       <View>
+        <BackgroundImage />
         <SideMenuBar onPress={this.props.navigation} />
         <View style={{ marginTop: 50}}>
-          <TouchableOpacity onPress={() => this.props.navigation.goBack('Home')}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('Home')}>
             <Image source={JSON.stringify(image)} style={imageStyle} />
           </TouchableOpacity>
           <Text style={headingStyle}>Restaurant name</Text>

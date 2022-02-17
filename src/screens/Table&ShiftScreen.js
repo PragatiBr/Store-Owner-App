@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
+import BackgroundImage from '../components/BackgroundImage';
 
 export default class TableShiftScreen extends Component{
   render(){
     return(
-      <View style={{ backgroundColor: 'black', flex: 1 }}>
+      <View>
+        <BackgroundImage />
         <View style={styles.containerStyle}>
           <Text onPress={() => this.props.navigation.navigate('ShiftInfo')} style={styles.textStyle}>Shift Information</Text>
         </View>

@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import SelectDropdown from 'react-native-select-dropdown';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import BackgroundImage from "../components/BackgroundImage";
 
 export default class AddCategoryScreen extends Component {
   constructor(props){
@@ -16,7 +17,8 @@ export default class AddCategoryScreen extends Component {
   render(){
     var data = ["Single Selection", "Multiple Selection"];
     return(
-      <View style={{ backgroundColor: 'white', flex :1}}>
+      <View>
+        <BackgroundImage />
         <View style={styles.containerStyle}>
           <Text style={styles.textStyle}>Add New Addon Category</Text>
           <Icon name="clear" size={25} onPress={() => this.props.navigation.navigate('AddonCategory')} />
@@ -69,7 +71,7 @@ const styles = StyleSheet.create({
   containerStyle:{
     marginVertical: 10,
     marginHorizontal:20,
-    backgroundColor: 'white',
+    //backgroundColor: 'white',
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
@@ -90,12 +92,12 @@ const styles = StyleSheet.create({
   labelStyle:{
     color:'black',
     marginTop:5,
-    fontSize: 15,
+    fontSize: 20,
   },
   dropdown1BtnStyle: {
     width: 300,
     height: 40,
-    backgroundColor: "#FFF",
+    //backgroundColor: "#FFF",
     borderWidth: 1,
     borderRadius:5,
     borderColor:'silver',

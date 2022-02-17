@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, Image } from 'react-native';
+import BackgroundImage from "../components/BackgroundImage";
 import SideMenuBar from "../components/SideMenuBar";
 
 export default class EarningsScreen extends Component {
@@ -7,6 +8,7 @@ export default class EarningsScreen extends Component {
     const { headerContainerStyle, textStyle, bodyContainer, bodyText, tableContainer } = styles;
     return (
       <View>
+        <BackgroundImage />
         <View style={{ flexDirection: 'row' }}>
           <View>
             <SideMenuBar onPress={this.props.navigation} />

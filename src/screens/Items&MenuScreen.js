@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from 'react-native';
+import BackgroundImage from "../components/BackgroundImage";
 import SideMenuBar from "../components/SideMenuBar";
 
 export default class ItemsMenuScreen extends Component {
   render() {
     return (
       <View>
+        <BackgroundImage />
         <SideMenuBar onPress={this.props.navigation} />
         <View style={styles.containerStyle}>
           <Text style={styles.textStyle} onPress={() => this.props.navigation.navigate('AddonCategory')}>ADDON CATEGORY</Text>

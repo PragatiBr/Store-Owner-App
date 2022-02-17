@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, TextInput, ScrollView, Image } from "react-nati
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Divider } from "react-native-elements";
+import BackgroundImage from "../components/BackgroundImage";
 
 export default class ItemsScreen extends Component{
   constructor(props){
@@ -14,7 +15,8 @@ export default class ItemsScreen extends Component{
   render(){
     const { containerStyle, inputStyle, addButton, textStyle } = styles 
     return(
-      <View style={{ backgroundColor:'white', flex: 1 }}>
+      <View>
+        <BackgroundImage />
         <View style={containerStyle}>
           <TextInput 
             value={this.state.search}
@@ -65,7 +67,7 @@ export default class ItemsScreen extends Component{
 
 const styles = StyleSheet.create({
   containerStyle: {
-    backgroundColor: 'white',
+    //backgroundColor: 'white',
     flexDirection: 'row',
     justifyContent: 'space-between',
     //height: 60,

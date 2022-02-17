@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, ScrollView, TextInput } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Divider } from "react-native-elements";
 import SideMenuBar from "../components/SideMenuBar";
+import BackgroundImage from "../components/BackgroundImage";
 
 export default class OrdersScreen extends Component {
   constructor(props) {
@@ -14,8 +15,8 @@ export default class OrdersScreen extends Component {
   render() {
     const { tableHeader, viewButton, tableCell, inputStyle } = styles;
     return (
-      <ScrollView>
         <View>
+          <BackgroundImage />
           <View style={{ flexDirection: 'row' }}>
             <SideMenuBar onPress={this.props.navigation} />
             <TextInput
@@ -48,7 +49,6 @@ export default class OrdersScreen extends Component {
             <Divider width={1.5} />
           </View>
         </View>
-      </ScrollView>
     );
   }
 }

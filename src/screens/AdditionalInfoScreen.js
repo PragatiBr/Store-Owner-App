@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { View, Text, StyleSheet, TextInput } from 'react-native';
 import SelectDropdown from 'react-native-select-dropdown';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import BackgroundImage from "../components/BackgroundImage";
 
 export default class AdditionalInfo extends Component {
   constructor(props) {
@@ -17,7 +18,8 @@ export default class AdditionalInfo extends Component {
     const { containerStyle, textStyle, buttonStyle, formContainer, labelStyle, inputStyle } = styles;
     var data = ["Web Bookings", "App Bookings", "Both Web & App Bookings", "No Mail"];
     return (
-      <View style={{ backgroundColor: 'white', flex: 1 }}>
+      <View>
+        <BackgroundImage />
         <View style={containerStyle}>
           <Text style={textStyle}>ADDITIONAL INFORMATION</Text>
           <Text style={buttonStyle} onPress={() => this.props.navigation.goBack('TableShift')} >UPDATE</Text>
@@ -82,7 +84,6 @@ export default class AdditionalInfo extends Component {
 
 const styles = StyleSheet.create({
   containerStyle: {
-    backgroundColor: 'white',
     flexDirection: 'row',
     justifyContent: 'space-between',
     height: 60,

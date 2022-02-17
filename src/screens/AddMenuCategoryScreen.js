@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { View, Text, StyleSheet, TextInput } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import BackgroundImage from "../components/BackgroundImage";
 
 export default class AddMenuCategory extends Component {
   constructor(props){
@@ -12,7 +13,8 @@ export default class AddMenuCategory extends Component {
   }
   render(){
     return(
-      <View style={{ backgroundColor: 'white', flex :1}}>
+      <View>
+        <BackgroundImage />
         <View style={styles.containerStyle}>
           <Text style={styles.textStyle}>Add New Item Category</Text>
           <Icon name="clear" size={25} onPress={() => this.props.navigation.navigate('MenuCategory')} />
@@ -21,6 +23,7 @@ export default class AddMenuCategory extends Component {
           <Text style={styles.labelStyle}><Text style={{ color: 'red' }}>*</Text>Name: </Text>
           <TextInput
             placeholder="Enter Category Name"
+            placeholderTextColor='black'
             value={this.state.name}
             onChangeText={name => this.state({ name })}
             style={styles.inputStyle}
@@ -36,7 +39,7 @@ const styles = StyleSheet.create({
   containerStyle:{
     marginVertical: 10,
     marginHorizontal:5,
-    backgroundColor: 'white',
+    //backgroundColor: 'white',
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
@@ -52,12 +55,12 @@ const styles = StyleSheet.create({
     padding:5,
     width: 400,
     borderRadius:5,
-    borderColor:'silver',
+    //borderColor:'silver',
   },
   labelStyle:{
     color:'black',
     marginTop:5,
-    fontSize: 15,
+    fontSize: 20,
   },
   buttonStyle:{
     backgroundColor:'slateblue',

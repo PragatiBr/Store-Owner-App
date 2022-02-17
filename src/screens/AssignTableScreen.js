@@ -4,6 +4,7 @@ import { Divider } from "react-native-elements";
 import RadioButtonRN from 'radio-buttons-react-native';
 import CheckBox from 'react-native-check-box'
 import SideMenuBar from "../components/SideMenuBar";
+import BackgroundImage from "../components/BackgroundImage";
 
 export default class AssignTable extends Component {
   constructor(props) {
@@ -41,56 +42,55 @@ export default class AssignTable extends Component {
   render() {
     const { buttonStyle, inputStyle, tableContainer, tableHeader, radioButtonText } = styles;
     return (
-      <ScrollView>
-        <View>
-          <View style={{ flexDirection: 'row' }}>
-            <SideMenuBar onPress={this.props.navigation} />
-            <Text style={buttonStyle} onPress={() => this.props.navigation.navigate('Filter')} >VENUE</Text>
-            <Text style={buttonStyle} onPress={() => this.props.navigation.navigate('Filter')} >DATE</Text>
-            <Text style={buttonStyle} onPress={() => this.props.navigation.navigate('Filter')} >TYPE</Text>
-            <TextInput
-              value={this.state.search}
-              placeholder="Search"
-              onChangeText={serach => this.setState({ serach })}
-              style={inputStyle}
+      <View>
+        <BackgroundImage />
+        <View style={{ flexDirection: 'row' }}>
+          <SideMenuBar onPress={this.props.navigation} />
+          <Text style={buttonStyle} >VENUE</Text>
+          <Text style={buttonStyle} >DATE</Text>
+          <Text style={buttonStyle} >TYPE</Text>
+          <TextInput
+            value={this.state.search}
+            placeholder="Search"
+            onChangeText={serach => this.setState({ serach })}
+            style={inputStyle}
+          />
+        </View>
+        <View style={tableContainer}>
+          <View style={{ width: Dimensions.get('window').width / 2, }}>
+            <Text style={tableHeader}>BOOKING LISTS</Text>
+            <RadioButtonRN
+              data={this.data}
+              initial={1}
+              box={false}
+              selectedBtn={(e) => this.setState({ res: e })}
+              circleSize={10}
+              style={radioButtonText}
             />
           </View>
-          <View style={tableContainer}>
-            <View style={{width: Dimensions.get('window').width /2,}}>
-              <Text style={tableHeader}>BOOKING LISTS</Text>
-              <RadioButtonRN
-                data={this.data}
-                initial={1}
-                box={false}
-                selectedBtn={(e) => this.setState({ res: e })}
-                circleSize={10}
-                style={radioButtonText}
+          <Divider orientation="vertical" width={1} style={{ marginLeft: 20 }} color='black' />
+          <View style={{ width: Dimensions.get('window').width / 2, }}>
+            <Text style={tableHeader}>LIST OF TABLES</Text>
+            {this.state.checkOptions.map(opt => (
+              <CheckBox
+                style={{ paddingTop: 8 }}
+                key={opt.title}
+                onClick={() => {
+                  opt.checked = !opt.checked;
+                  this.setState({
+                    checkOptions: [
+                      ...this.state.checkOptions
+                    ]
+                  })
+                }}
+                isChecked={opt.checked}
+                rightText={opt.title}
+                rightTextStyle={{ fontWeight: '600', color: 'black' }}
               />
-            </View>
-            <Divider orientation="vertical" width={1} style={{ marginLeft: 20 }} color='black' />
-            <View style={{width: Dimensions.get('window').width /2,}}>
-              <Text style={tableHeader}>LIST OF TABLES</Text>
-              {this.state.checkOptions.map(opt => (
-                <CheckBox
-                  style={{ paddingTop: 8 }}
-                  key={opt.title}
-                  onClick={() => {
-                    opt.checked = !opt.checked;
-                    this.setState({
-                      checkOptions : [
-                        ...this.state.checkOptions
-                      ]
-                    })
-                  }}
-                  isChecked={opt.checked}
-                  rightText={opt.title}
-                  rightTextStyle={{ fontWeight: '600', color:'black' }}
-                />
-              ))}
-            </View>
+            ))}
           </View>
         </View>
-      </ScrollView>
+      </View>
     );
   }
 }
@@ -140,6 +140,6 @@ const styles = StyleSheet.create({
   radioButtonText: {
     fontWeight: 'bold',
     paddingLeft: 5,
-    
+
   }
 });

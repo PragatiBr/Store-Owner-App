@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, Image, Dimensions, FlatList } from 'react-native'
 import { Divider } from "react-native-elements";
+import BackgroundImage from "../components/BackgroundImage";
 import SideMenuBar from "../components/SideMenuBar";
 
 export default class DashboardScreen extends Component {
@@ -85,6 +86,7 @@ export default class DashboardScreen extends Component {
 
     return (
       <View style={{ flexDirection: 'row', height: Dimensions.get('window').height  }}>
+        <BackgroundImage />
         <SideMenuBar onPress={this.props.navigation} />
         {/* Left Side Section */}
         <View style={{ marginTop: 50 }}>
@@ -154,7 +156,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   separator: {
-    marginLeft: 20,
+    marginLeft: 15,
   },
   headingText: {
     fontSize: 25,
