@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, TextInput, Dimensions, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, } from 'react-native';
 import Icon from "react-native-vector-icons/FontAwesome";
 import BackgroundImage from "../components/BackgroundImage";
+import Input from "../components/Input";
 
 export default class EditRestaurant extends Component {
 
@@ -22,74 +23,50 @@ export default class EditRestaurant extends Component {
   }
 
   render() {
-    const { containerStyle, inputStyle, textStyle, redRectangle, greenRectangle, updateButtonstyle, iconStyle } = styles;
+    const { textStyle, redRectangle, greenRectangle, updateButtonstyle, iconStyle } = styles;
     return (
       <View>
         <BackgroundImage />
-        <View style={containerStyle}>
-          <Text style={textStyle}>*Store Name : </Text>
-          <TextInput
-            value={this.state.name}
-            onChangeText={(name) => this.setState({ name })}
-            style={inputStyle}
-          />
-        </View>
-        <View style={containerStyle}>
-          <Text style={textStyle}>*Description : </Text>
-          <TextInput
-            value={this.state.description}
-            onChangeText={(description) => this.setState({ description })}
-            style={inputStyle}
-          />
-        </View>
-        <View style={containerStyle}>
-          <Text style={textStyle}>*Image : </Text>
-          <TextInput
-            value={this.state.image}
-            onChangeText={(image) => this.setState({ image })}
-            style={inputStyle}
-          />
-        </View>
-        <View style={containerStyle}>
-          <Text style={textStyle}>*Apx Delivery Time : </Text>
-          <TextInput
-            value={this.state.deliveryTime}
-            onChangeText={(deliveryTime) => this.setState({ deliveryTime })}
-            style={inputStyle}
-          />
-        </View>
-        <View style={containerStyle}>
-          <Text style={textStyle}>*Apx Price for Two : </Text>
-          <TextInput
-            value={this.state.price}
-            onChangeText={(price) => this.setState({ price })}
-            style={inputStyle}
-          />
-        </View>
-        <View style={containerStyle}>
-          <Text style={textStyle}>*Full Address : </Text>
-          <TextInput
-            value={this.state.address}
-            onChangeText={(address) => this.setState({ address })}
-            style={inputStyle}
-          />
-        </View>
-        <View style={containerStyle}>
-          <Text style={textStyle}>*Pincode : </Text>
-          <TextInput
-            value={this.state.pincode}
-            onChangeText={(pincode) => this.setState({ pincode })}
-            style={inputStyle}
-          />
-        </View>
-        <View style={containerStyle}>
-          <Text style={textStyle}>*Land Mark : </Text>
-          <TextInput
-            value={this.state.landmark}
-            onChangeText={(landmark) => this.setState({ landmark })}
-            style={inputStyle}
-          />
-        </View>
+        <Input 
+          label="*Store Name :"
+          value={this.state.name}
+          onChangeText={(name) => this.setState({ name })}
+        />
+        <Input 
+          label="*Description : "
+          value={this.state.description}
+          onChangeText={(description) => this.setState({ description })}
+        />
+        <Input 
+          label="*Image : "
+          value={this.state.image}
+          onChangeText={(image) => this.setState({ image })}
+        />
+        <Input 
+          label="*Apx Delivery Time : "
+          value={this.state.deliveryTime}
+          onChangeText={(deliveryTime) => this.setState({ deliveryTime })}
+        />
+        <Input 
+          label="*Apx Price for Two : "
+          value={this.state.price}
+          onChangeText={(price) => this.setState({ price })}
+        />
+        <Input 
+          label="*Full Address : "
+          value={this.state.address}
+          onChangeText={(address) => this.setState({ address })}
+        />
+        <Input 
+          label="*Pincode : "
+          value={this.state.pincode}
+          onChangeText={(pincode) => this.setState({ pincode })}
+        />
+        <Input 
+          label="*Land Mark : "
+          value={this.state.landmark}
+          onChangeText={(landmark) => this.setState({ landmark })}
+        />
         <View style={{
           flexDirection: 'row',
           marginHorizontal: 10,
@@ -113,13 +90,11 @@ export default class EditRestaurant extends Component {
           marginTop: 10,
           justifyContent: 'space-between',
         }}>
-          <TextInput
-            style={inputStyle}
+          <Input
             value={this.state.latitude}
             onChangeText={(latitude) => this.setState({ latitude })}
           />
-          <TextInput
-            style={inputStyle}
+          <Input
             value={this.state.longitude}
             onChangeText={(longitude) => this.setState({ longitude })}
           />
@@ -128,30 +103,16 @@ export default class EditRestaurant extends Component {
           <Text style={{ color: 'silver' }}>  URL</Text>
         </Text>
         <Text style={{ marginHorizontal: 10, color: 'black' }}>If you entered the invalid Latitude/Longitude the map system might crash with a white screen.</Text>
-        <View style={containerStyle}>
-          <Text style={textStyle}>Certificate/License Code : </Text>
-          <TextInput
-            value={this.state.licenseCode}
-            onChangeText={(licenseCode) => this.setState({ licenseCode })}
-            style={inputStyle}
-          />
-        </View>
-        <View style={containerStyle}>
-          <Text style={textStyle}>Store Charges (Packing/Extra) : </Text>
-          <TextInput
-            value={this.state.storeCharge}
-            onChangeText={(storeCharge) => this.setState({ storeCharge })}
-            style={inputStyle}
-          />
-        </View>
-        <View style={containerStyle}>
-          <Text style={textStyle}>Min Order Price : </Text>
-          <TextInput
-            value={this.state.orderPrice}
-            onChangeText={(orderPrice) => this.setState({ orderPrice })}
-            style={inputStyle}
-          />
-        </View>
+        <Input 
+          label="Store Charges (Packing/Extra) : "
+          value={this.state.storeCharge}
+          onChangeText={(storeCharge) => this.setState({ storeCharge })}
+        />
+        <Input 
+          label="Min Order Price : "
+          value={this.state.orderPrice}
+          onChangeText={(orderPrice) => this.setState({ orderPrice })}
+        />
         <View style={{ flexDirection: 'row', marginLeft: 10 }}>
           <Text style={textStyle}>Is Pure Veg? : </Text>
           <View style={greenRectangle}><Text style={textStyle}>YES</Text></View>
@@ -172,20 +133,6 @@ export default class EditRestaurant extends Component {
 }
 
 const styles = StyleSheet.create({
-  containerStyle: {
-    marginHorizontal: 10,
-    marginTop: 20,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  inputStyle: {
-    borderWidth: 1,
-    width: 400,
-    height: 30,
-    borderColor: 'black',
-    padding: 5,
-  },
   textStyle: {
     fontSize: 18,
     fontWeight: 'bold',

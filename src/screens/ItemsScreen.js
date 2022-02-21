@@ -13,7 +13,7 @@ export default class ItemsScreen extends Component{
     }
   }
   render(){
-    const { containerStyle, inputStyle, addButton, textStyle } = styles 
+    const { containerStyle, inputStyle, addButton, textStyle, tableCellStyle } = styles;
     return(
       <View>
         <BackgroundImage />
@@ -49,12 +49,12 @@ export default class ItemsScreen extends Component{
             <Divider width={1} color='rgba(192,192,192,0.5)' />
             <View style={containerStyle}>
               <Image source={{ uri:'https://demo.ozeatsonline.com.au/assets/img/items/16442900557ioJzLFpow.jpg' }} style={styles.imageStyle} />
-              <Text style={{ width: 100}}>PAPPARDELLE AL RAGU</Text>
-              <Text style={{ width: 150}}>Est Ovest</Text>
-              <Text style={{ width: 150}}>Pizza</Text>
-              <Text style={{ width: 150}}>28.00</Text>
-              <Text style={{ width: 150}}>New</Text>
-              <Text style={{ width: 120}}>3:14 10/02/2022</Text>
+              <Text style={[tableCellStyle]}>PAPPARDELLE AL RAGU</Text>
+              <Text style={tableCellStyle}>Est Ovest</Text>
+              <Text style={tableCellStyle}>Pizza</Text>
+              <Text style={tableCellStyle}>28.00</Text>
+              <Text style={tableCellStyle}>New</Text>
+              <Text style={[tableCellStyle, {width: 120}]}>3:14 10/02/2022</Text>
               <Icon name="edit" size={25} /><Icon name="delete" size={25} color='red' />
             </View>
             <Divider width={1} color='rgba(192,192,192,0.5)' />
@@ -67,10 +67,8 @@ export default class ItemsScreen extends Component{
 
 const styles = StyleSheet.create({
   containerStyle: {
-    //backgroundColor: 'white',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    //height: 60,
     alignItems: 'center',
     paddingHorizontal: 10,
     marginVertical: 20,
@@ -101,5 +99,10 @@ const styles = StyleSheet.create({
     height: 80,
     borderRadius: 10,
     marginRight:10,
+  },
+  tableCellStyle:{
+    width: 150, 
+    color:"black",
+    fontSize: 15,
   },
 });

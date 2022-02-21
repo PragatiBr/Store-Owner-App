@@ -60,7 +60,6 @@ export default class AddonCategory extends Component {
 
 const styles = StyleSheet.create({
   containerStyle: {
-    //backgroundColor: 'white',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -88,8 +87,7 @@ const styles = StyleSheet.create({
     fontWeight:'bold',
     color:'black',
   },
-  // header: { height: 50, color:'black', },
-  // text: { textAlign: 'center', fontWeight: '100', color:'black' },
-  // dataWrapper: { marginTop: -1 },
-  // row: { height: 40, color:'black' }
+  tableCellStyle:{
+    
+  }
 });

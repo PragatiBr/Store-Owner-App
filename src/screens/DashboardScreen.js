@@ -52,7 +52,23 @@ export default class DashboardScreen extends Component {
           image: require('../assets/images/earning.jpg'),
           count: '$1500',
         },
-      ]
+      ],
+      newOrderData: [
+        {
+          id: 1,
+          orderId: 'OD-123-XYZ',
+          resName: 'SCOOTZ CAFE',
+          price: '$40',
+          status: 'NEW',
+        },
+        {
+          id: 2,
+          orderId: 'OD-486-XYZ',
+          resName: 'SCOOTZ CAFE',
+          price: '$40',
+          status: 'NEW',
+        },
+      ],
     }
   }
 
@@ -76,21 +92,29 @@ export default class DashboardScreen extends Component {
     );
   }
 
+  renderNewOrder = (itemData) => {
+    return (
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingTop: 20 }}>
+        <Text style={styles.tableText}>{itemData.item.orderId}</Text>
+        <View style={styles.greenRectangle} />
+        <View style={styles.redRectangle} />
+        <Text style={styles.tableText}>{itemData.item.resName}</Text>
+        <Text style={styles.tableText}>{itemData.item.price}</Text>
+        <Text style={styles.tableText}>{itemData.item.status}</Text>
+      </View>
+    );
+  }
+
   render() {
-    const {
-      headingText,
-      tableText,
-      redRectangle,
-      greenRectangle,
-    } = styles;
+    const { headingText } = styles;
 
     return (
-      <View style={{ flexDirection: 'row', height: Dimensions.get('window').height  }}>
+      <View style={{ flexDirection: 'row', height: Dimensions.get('window').height }}>
         <BackgroundImage />
         <SideMenuBar onPress={this.props.navigation} />
         {/* Left Side Section */}
         <View style={{ marginTop: 50 }}>
-          <FlatList 
+          <FlatList
             data={this.state.leftSideData}
             keyExtractor={item => item.id}
             renderItem={itemData => this.renderData(itemData)}
@@ -102,23 +126,12 @@ export default class DashboardScreen extends Component {
           <Text style={headingText}>
             NEW ORDERS
           </Text>
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingTop: 20 }}>
-            <Text style={tableText}>ORDER ID</Text>
-            <View style={greenRectangle} />
-            <View style={redRectangle} />
-            <Text style={tableText}>RESTAURANT NAME</Text>
-            <Text style={tableText}>PRICE</Text>
-            <Text style={tableText}>STATUS</Text>
-          </View>
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingTop: 20 }}>
-            <Text style={tableText}>ORDER ID</Text>
-            <View style={greenRectangle} />
-            <View style={redRectangle} />
-            <Text style={tableText}>RESTAURANT NAME</Text>
-            <Text style={tableText}>PRICE</Text>
-            <Text style={tableText}>STATUS</Text>
-          </View>
-          <Divider width={1} color='black' style={{ marginTop: 300 }} />
+          <FlatList 
+            data={this.state.newOrderData}
+            keyExtractor={item => item.id}
+            renderItem={itemData => this.renderNewOrder(itemData)}
+          />
+          <Divider width={1} color='black' style={{ marginTop: 200 }} />
           {/* Preparing Order Section */}
           <Text style={headingText}>
             PREPARING ORDERS
@@ -172,14 +185,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   redRectangle: {
-    width: 20 * 2,
-    height: 20,
+    width: 30 * 2,
+    height: 35,
     backgroundColor: 'red',
-    marginLeft: -50,
+    marginLeft: -60,
   },
   greenRectangle: {
-    width: 20 * 2,
-    height: 20,
+    width: 30 * 2,
+    height: 35,
     backgroundColor: 'green',
   },
 });

@@ -54,7 +54,7 @@ export default class TableSetupScreen extends Component {
         <BackgroundImage />
         <View style={containerStyle}>
           <Text style={textStyle}>TABLE SETUP</Text>
-          <Text style={buttonStyle} onPress={() => this.props.navigation.goBack('TableShift')} >UPDATE</Text>
+          <Text style={buttonStyle} onPress={ () => this.props.navigation.goBack('TableShift') }>UPDATE</Text>
         </View>
         <Text style={{ color: 'black', marginLeft: 10, fontSize: 15 }}>Add New Table</Text>
         <View style={addButton}>
@@ -62,7 +62,7 @@ export default class TableSetupScreen extends Component {
             color={'white'}
             name="add"
             size={30}
-            onPress={() => this.setState({ isVisibleList : true })}
+            onPress={() => this.renderTableComponent.bind(this)}
           />
         </View>
         <View style={{ flexDirection: 'row', marginTop: 10, marginLeft:20, }}>
@@ -75,14 +75,11 @@ export default class TableSetupScreen extends Component {
             <TextInput style={inputStyle} />
           </View>
         </View>
-        {this.state.isVisibleList 
-        ? <FlatList 
+        <FlatList 
           data={this.state.data}
           keyExtractor={item => item.id}
-          renderItem={(itemData) => 
-            this.renderTableComponent(itemData)}
-          /> 
-        : null }
+          renderItem={(itemData) => this.renderTableComponent(itemData)}
+        />
       </View>
     );
   }
@@ -90,7 +87,6 @@ export default class TableSetupScreen extends Component {
 
 const styles = StyleSheet.create({
   containerStyle: {
-    //backgroundColor: 'white',
     flexDirection: 'row',
     justifyContent: 'space-between',
     height: 60,

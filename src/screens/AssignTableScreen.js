@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, ScrollView, TextInput, Dimensions, Image } from 'react-native';
+import { View, Text, StyleSheet, TextInput, Dimensions } from 'react-native';
 import { Divider } from "react-native-elements";
 import RadioButtonRN from 'radio-buttons-react-native';
 import CheckBox from 'react-native-check-box'
@@ -57,7 +57,7 @@ export default class AssignTable extends Component {
           />
         </View>
         <View style={tableContainer}>
-          <View style={{ width: Dimensions.get('window').width / 2, }}>
+          <View style={{ width: Dimensions.get('window').width /2 }}>
             <Text style={tableHeader}>BOOKING LISTS</Text>
             <RadioButtonRN
               data={this.data}
@@ -68,12 +68,12 @@ export default class AssignTable extends Component {
               style={radioButtonText}
             />
           </View>
-          <Divider orientation="vertical" width={1} style={{ marginLeft: 20 }} color='black' />
-          <View style={{ width: Dimensions.get('window').width / 2, }}>
+          <Divider orientation="vertical" width={1} style={{ marginHorizontal: 15 }} color='black' />
+          <View style={{ width: Dimensions.get('window').width /2 }}>
             <Text style={tableHeader}>LIST OF TABLES</Text>
             {this.state.checkOptions.map(opt => (
               <CheckBox
-                style={{ paddingTop: 8 }}
+                style={{ paddingTop: 10 }}
                 key={opt.title}
                 onClick={() => {
                   opt.checked = !opt.checked;
@@ -108,7 +108,6 @@ const styles = StyleSheet.create({
   },
   buttonStyle: {
     borderWidth: 1,
-    borderColor: 'silver',
     backgroundColor: 'silver',
     color: 'black',
     width: 150,
@@ -123,7 +122,7 @@ const styles = StyleSheet.create({
   tableContainer: {
     flexDirection: 'row',
     borderWidth: 1,
-    flex: 1,
+    borderColor:'black',
     marginTop: 20,
     marginHorizontal: 8,
     marginBottom: 10,
@@ -139,7 +138,6 @@ const styles = StyleSheet.create({
   },
   radioButtonText: {
     fontWeight: 'bold',
-    paddingLeft: 5,
-
+    color:'black'
   }
 });
