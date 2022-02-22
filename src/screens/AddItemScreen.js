@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { View, Text, StyleSheet, TextInput } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import SelectDropdown from 'react-native-select-dropdown';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import ToggleSwitch from 'toggle-switch-react-native';
 import BackgroundImage from "../components/BackgroundImage";
@@ -37,7 +36,7 @@ export default class AddItem extends Component {
         <BackgroundImage />
         <View style={styles.containerStyle}>
           <Text style={styles.textStyle}>Add New Item</Text>
-          <Icon name="clear" size={25} onPress={() => this.props.navigation.navigate('Items')} />
+          <Icon name="clear" size={30} color="black" onPress={() => this.props.navigation.navigate('Items')} />
         </View>
         <View style={styles.containerStyle}>
           <Text style={styles.labelStyle}><Text style={{ color: 'red' }}>*</Text>Item Name: </Text>
@@ -83,10 +82,10 @@ export default class AddItem extends Component {
           data={this.state.storeData}
           onSelect={(store) => this.setState({ store })}
           defaultButtonText={"Select"}
-          buttonTextAfterSelection={(selectedItem, index) => {
+          buttonTextAfterSelection={(selectedItem) => {
             return selectedItem;
           }}
-          rowTextForSelection={(item, index) => {
+          rowTextForSelection={(item) => {
             return item;
           }}
           renderDropdownIcon={(isOpened) => {
@@ -186,7 +185,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   textStyle: {
-    fontSize: 20,
+    fontSize: 25,
     fontWeight: 'bold',
     color: 'black',
     textAlign: 'center',

@@ -106,7 +106,7 @@ export default class DashboardScreen extends Component {
   }
 
   render() {
-    const { headingText } = styles;
+    const { headingText, flatListStyle } = styles;
 
     return (
       <View style={{ flexDirection: 'row', height: Dimensions.get('window').height }}>
@@ -122,7 +122,7 @@ export default class DashboardScreen extends Component {
         </View>
         <Divider orientation="vertical" width={2} color='black' style={{ marginLeft: 20, }} />
         {/* New Orders Section */}
-        <View style={{ marginLeft: 10 }}>
+        <View>
           <Text style={headingText}>
             NEW ORDERS
           </Text>
@@ -130,6 +130,7 @@ export default class DashboardScreen extends Component {
             data={this.state.newOrderData}
             keyExtractor={item => item.id}
             renderItem={itemData => this.renderNewOrder(itemData)}
+            style={flatListStyle}
           />
           <Divider width={1} color='black' style={{ marginTop: 200 }} />
           {/* Preparing Order Section */}
@@ -140,6 +141,7 @@ export default class DashboardScreen extends Component {
             data={this.state.prepareOrderData}
             keyExtractor={item => item.id}
             renderItem={item => this.renderPrepareOrder(item)}
+            style={flatListStyle}
           />
         </View>
       </View>
@@ -188,11 +190,14 @@ const styles = StyleSheet.create({
     width: 30 * 2,
     height: 35,
     backgroundColor: 'red',
-    marginLeft: -60,
+    marginLeft: -49,
   },
   greenRectangle: {
     width: 30 * 2,
     height: 35,
     backgroundColor: 'green',
   },
+  flatListStyle:{
+    marginHorizontal: 15,
+  }
 });

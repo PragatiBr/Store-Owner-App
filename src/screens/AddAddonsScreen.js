@@ -22,7 +22,7 @@ export default class AddAddonsScreen extends Component {
         <BackgroundImage />
         <View style={styles.containerStyle}>
           <Text style={styles.textStyle}>Add New Addon</Text>
-          <Icon name="clear" size={25} onPress={() => this.props.navigation.navigate('Addons')} />
+          <Icon name="clear" size={25} color='black' onPress={() => this.props.navigation.navigate('Addons')} />
         </View>
         <View style={styles.containerStyle}>
           <Text style={styles.labelStyle}><Text style={{ color: 'red' }}>*</Text>Addon Name: </Text>
@@ -47,10 +47,10 @@ export default class AddAddonsScreen extends Component {
           data={data}
           onSelect={(addonsCategory) => this.setState({ addonsCategory })}
           defaultButtonText={"Select Category"}
-          buttonTextAfterSelection={(selectedItem, index) => {
+          buttonTextAfterSelection={(selectedItem) => {
             return selectedItem;
           }}
-          rowTextForSelection={(item, index) => {
+          rowTextForSelection={(item) => {
             return item;
           }}
           renderDropdownIcon={(isOpened) => {
@@ -72,12 +72,12 @@ export default class AddAddonsScreen extends Component {
 const styles = StyleSheet.create({
   containerStyle: {
     marginVertical: 10,
-    marginHorizontal: 20,
+    marginHorizontal: 10,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
   textStyle: {
-    fontSize: 20,
+    fontSize: 25,
     fontWeight: 'bold',
     color: 'black',
     textAlign: 'center',
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
   labelStyle: {
     color: 'black',
     marginTop: 5,
-    fontSize: 15,
+    fontSize: 20,
   },
   buttonStyle: {
     backgroundColor: 'slateblue',

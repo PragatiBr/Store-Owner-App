@@ -17,7 +17,7 @@ export default class AddMenuCategory extends Component {
         <BackgroundImage />
         <View style={styles.containerStyle}>
           <Text style={styles.textStyle}>Add New Item Category</Text>
-          <Icon name="clear" size={25} onPress={() => this.props.navigation.navigate('MenuCategory')} />
+          <Icon name="clear" size={25} color="black" onPress={() => this.props.navigation.navigate('MenuCategory')} />
         </View>
         <View style={styles.containerStyle}>
           <Text style={styles.labelStyle}><Text style={{ color: 'red' }}>*</Text>Name: </Text>
@@ -38,8 +38,7 @@ export default class AddMenuCategory extends Component {
 const styles = StyleSheet.create({
   containerStyle:{
     marginVertical: 10,
-    marginHorizontal:5,
-    //backgroundColor: 'white',
+    marginHorizontal:20,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
@@ -55,7 +54,6 @@ const styles = StyleSheet.create({
     padding:5,
     width: 400,
     borderRadius:5,
-    //borderColor:'silver',
   },
   labelStyle:{
     color:'black',
@@ -74,6 +72,6 @@ const styles = StyleSheet.create({
     padding:5,
     fontWeight:'bold',
     fontSize:15,
-    marginTop:10,
+    marginTop:20,
   }
 });

@@ -20,6 +20,7 @@ export default class BookingsScreen extends Component {
           <TextInput
             value={this.state.search}
             placeholder="Search Customer Name"
+            placeholderTextColor={"black"}
             onChangeText={search => this.setState({ search })}
             style={inputStyle}
           />
@@ -63,11 +64,12 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 8,
     padding: 7,
-    width: 350,
+    width: 325,
     height: 40,
     paddingLeft: 20,
-    marginHorizontal: 20,
-    marginTop: 20
+    marginHorizontal: 30,
+    marginTop: 20,
+    fontSize: 15,
   },
   buttonStyle: {
     borderWidth: 1,
@@ -81,7 +83,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 18,
     marginHorizontal: 10,
-    marginTop: 10
+    marginTop: 20
   },
   tableHeader: {
     backgroundColor: 'silver',

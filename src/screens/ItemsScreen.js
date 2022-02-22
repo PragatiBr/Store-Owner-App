@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, TextInput, ScrollView, Image } from "react-native";
+import { View, Text, StyleSheet, ScrollView, Image } from "react-native";
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Divider } from "react-native-elements";
 import BackgroundImage from "../components/BackgroundImage";
+import ItemMenuHeader from "../components/ItemMenuHeader";
 
 export default class ItemsScreen extends Component{
   constructor(props){
@@ -13,53 +14,44 @@ export default class ItemsScreen extends Component{
     }
   }
   render(){
-    const { containerStyle, inputStyle, addButton, textStyle, tableCellStyle } = styles;
+    const { containerStyle, textStyle, tableCellStyle } = styles;
     return(
       <View>
         <BackgroundImage />
-        <View style={containerStyle}>
-          <TextInput 
-            value={this.state.search}
-            placeholder="Search"
-            onChangeText={search => this.setState({ search })}
-            style={inputStyle}
-          />
-          <View style={addButton}>
-          <Icon
-            color={'white'}
-            name="add"
-            size={25}
-            onPress={() => this.props.navigation.navigate('AddItem')}
-          />
-        </View>
-        </View>
-        <Divider width={3} color='rgba(192,192,192,0.5)' />
-        <ScrollView horizontal >
-          <View>
+        <ItemMenuHeader 
+          value={this.state.search}
+          placeholder="Search"
+          onChangeText={search => this.setState({ search })}
+          onPress={() => this.props.navigation.navigate('AddItem')}
+        />
+        <Divider width={2} color='black' />
+        <View>
             <View style={containerStyle}>
-              <Text style={[textStyle, {width: 100}]}>Image</Text>
-              <Text style={[textStyle, {width: 100}]}>Name</Text>
+              <Text style={textStyle}>Image</Text>
+              <Text style={[textStyle, {width: 120}]}>Name</Text>
               <Text style={[textStyle, {width: 150}]}>Store's Name</Text>
-              <Text style={[textStyle, {width: 100}]}>Item's Category</Text>
-              <Text style={[textStyle, {width: 150, paddingLeft:40}]}>Price</Text>
-              <Text style={[textStyle, {width: 150,paddingLeft:40}]}>Attributes</Text>
-              <Text style={[textStyle, {width: 120, paddingLeft:40}]}>Created At</Text>
-              <Text style={{width: 100, paddingLeft:60}}><Ionicons name="chevron-down-circle-outline" size={20} color='black' /></Text>
+              <Text style={textStyle}>Item's Category</Text>
+              <Text style={textStyle}>Price</Text>
+              <Text style={textStyle}>Attributes</Text>
+              <Text style={[textStyle, {width: 120,paddingLeft: 20}]}>Created At</Text>
+              <Text style={{width: 100, paddingLeft:60}}><Ionicons name="chevron-down-circle-outline" size={25} color='black' /></Text>
             </View>
-            <Divider width={1} color='rgba(192,192,192,0.5)' />
+            <Divider width={0.5} color='black' />
             <View style={containerStyle}>
               <Image source={{ uri:'https://demo.ozeatsonline.com.au/assets/img/items/16442900557ioJzLFpow.jpg' }} style={styles.imageStyle} />
-              <Text style={[tableCellStyle]}>PAPPARDELLE AL RAGU</Text>
-              <Text style={tableCellStyle}>Est Ovest</Text>
+              <Text style={[tableCellStyle,{width: 120}]}>PAPPARDELLE AL RAGU</Text>
+              <Text style={[tableCellStyle,{width:150}]}>Est Ovest</Text>
               <Text style={tableCellStyle}>Pizza</Text>
               <Text style={tableCellStyle}>28.00</Text>
               <Text style={tableCellStyle}>New</Text>
               <Text style={[tableCellStyle, {width: 120}]}>3:14 10/02/2022</Text>
-              <Icon name="edit" size={25} /><Icon name="delete" size={25} color='red' />
+              <View style={{flexDirection:'row'}}>
+                <Icon name="edit" size={25} />
+                <Icon name="delete" size={25} color='red' />
+              </View>
             </View>
-            <Divider width={1} color='rgba(192,192,192,0.5)' />
+            <Divider width={0.5} color='black' />
           </View>
-        </ScrollView>
       </View>
     );
   }
@@ -73,26 +65,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     marginVertical: 20,
   },
-  addButton: {
-    backgroundColor: 'blue',
-    width: 30,
-    height: 30,
-    borderRadius: 8,
-    alignSelf: 'center',
-    padding: 3,
-  },
-  inputStyle :{
-    backgroundColor: 'silver',
-    borderRadius: 15,
-    padding: 7,
-    width: 350,
-    height: 30,
-    paddingLeft: 20,
-  },
   textStyle:{
-    fontSize:16,
+    fontSize:20,
     fontWeight:'bold',
     color:'black',
+    width: 100,
   },
   imageStyle:{
     width: 80,
@@ -101,8 +78,9 @@ const styles = StyleSheet.create({
     marginRight:10,
   },
   tableCellStyle:{
-    width: 150, 
+    width: 100, 
     color:"black",
     fontSize: 15,
+    textAlign:"auto",
   },
 });
